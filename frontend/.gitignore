@@ -10,6 +10,22 @@ npm-debug.*
 *.orig.*
 web-build/
 
+# Node modules
+node_modules/
+
+# Expo
+.expo/
+.expo-shared/
+
+# Env files
+.env
+
+# macOS
+.DS_Store
+
+# Build directories
+web-build/
+dist/
 
 
 

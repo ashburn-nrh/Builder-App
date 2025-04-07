@@ -9,7 +9,8 @@
     },
 
     "experiments": {
-      "tsconfigPaths": true
+      "tsconfigPaths": true,
+      "newArchEnabled": true
     },
 
     "plugins": [],
