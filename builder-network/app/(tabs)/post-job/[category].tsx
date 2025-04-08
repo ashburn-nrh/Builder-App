@@ -1,9 +1,11 @@
-import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, SafeAreaView} from 'react-native';
 import React, { useState } from 'react';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { jobFollowUps } from '../../../constants/JobCategory';
+import { useJob } from '@/context/JobContext';
 
 export default function JobDetails() {
+    
   const { category } = useLocalSearchParams();
   const job = Array.isArray(category) ? category[0] : category;
   const followUp = jobFollowUps[job];
@@ -28,6 +30,7 @@ export default function JobDetails() {
   };
 
   return (
+    <SafeAreaView className="flex-1 bg-white">
     <View className="flex-1 bg-white">
       {/* Header */}
       <View className="px-4 py-4 bg-gray-100 border-b border-gray-200">
@@ -60,5 +63,6 @@ export default function JobDetails() {
         )}
       </ScrollView>
     </View>
+    </SafeAreaView>
   );
 }

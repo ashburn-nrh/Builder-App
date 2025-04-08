@@ -1,4 +1,4 @@
-import { View, Text, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, SafeAreaView } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import React from 'react';
 
@@ -18,6 +18,7 @@ export default function InviteScreen() {
   };
 
   return (
+    <SafeAreaView className="flex-1 bg-white">
     <View className="flex-1 bg-white p-4">
       <Text className="text-xl font-bold mb-4 text-gray-800">
         Recommended Tradespersons for {category}
@@ -39,5 +40,6 @@ export default function InviteScreen() {
         )}
       />
     </View>
+    </SafeAreaView>
   );
 }

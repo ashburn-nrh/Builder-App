@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity , SafeAreaView } from 'react-native';
 import React, { useState } from 'react';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { useRouter } from 'expo-router';
@@ -15,6 +15,7 @@ export default function PostJobScreen() {
   }));
 
   return (
+    <SafeAreaView className="flex-1 bg-white">
     <View className="flex-1 bg-white">
       <View className="px-4 py-4 bg-gray-100 border-b border-gray-200">
         <Text className="text-xl font-bold text-gray-800">Select Job Category</Text>
@@ -44,5 +45,6 @@ export default function PostJobScreen() {
         )}
       </View>
     </View>
+    </SafeAreaView>
   );
 }
