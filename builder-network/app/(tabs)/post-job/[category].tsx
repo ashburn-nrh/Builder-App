@@ -1,11 +1,11 @@
-import { View, Text, TouchableOpacity, ScrollView, SafeAreaView} from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native';
 import React, { useState } from 'react';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { jobFollowUps } from '../../../constants/JobCategory';
 import { useJob } from '@/context/JobContext';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function JobDetails() {
-    
   const { category } = useLocalSearchParams();
   const job = Array.isArray(category) ? category[0] : category;
   const followUp = jobFollowUps[job];
@@ -29,40 +29,65 @@ export default function JobDetails() {
     }
   };
 
+  const handleBack = () => {
+    router.push('/post-job');
+  };
+
   return (
-    <SafeAreaView className="flex-1 bg-white">
-    <View className="flex-1 bg-white">
-      {/* Header */}
-      <View className="px-4 py-4 bg-gray-100 border-b border-gray-200">
-        <Text className="text-xl font-bold text-gray-800">Job Details: {job}</Text>
-      </View>
+    <SafeAreaView className="flex-1 bg-primary">
+      <View className="flex-1 bg-white">
+        {/* Header */}
+        <View className="flex-row px-6 py-4 bg-gray-100 border-b border-gray-200">
+        <TouchableOpacity onPress={() => router.push('/(tabs)/post-job')} className="mr-4">
+          <Ionicons name="arrow-back" size={24} color="black" />
+        </TouchableOpacity>
+                            <Text className="text-blue-500 text-xl font-extrabold">
+                              <Text className="text-blue-500 text-2xl">B</Text>UILDER NETWORK
+                            </Text>
+        </View>
 
-      {/* Content */}
-      <ScrollView contentContainerStyle={{ padding: 16 }}>
-        <Text className="text-lg font-semibold mb-4">{followUp.question}</Text>
+        {/* Content */}
+        <ScrollView
+          className="bg-primary"
+          contentContainerStyle={{ padding: 16, paddingBottom: 100 }}
+        >
+          <Text className="text-xl font-bold text-gray-800 mb-5">Job Details: {job}</Text>
+          <Text className="text-lg font-semibold mb-4">{followUp.question}</Text>
 
-        {followUp.options.map((option, index) => (
-          <TouchableOpacity
-            key={index}
-            onPress={() => setSelectedOption(option)}
-            className={`mb-3 p-4 rounded-lg border ${
-              selectedOption === option ? 'border-blue-500 bg-blue-50' : 'border-gray-300 bg-gray-50'
-            }`}
-          >
-            <Text className="text-gray-800">{option}</Text>
-          </TouchableOpacity>
-        ))}
+          {followUp.options.map((option, index) => (
+            <TouchableOpacity
+              key={index}
+              onPress={() => setSelectedOption(option)}
+              className={`mb-3 p-4 rounded-lg border ${
+                selectedOption === option
+                  ? 'border-blue-500 bg-blue-50'
+                  : 'border-gray-300 bg-gray-50'
+              }`}
+            >
+              <Text className="text-gray-800">{option}</Text>
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
 
+        {/* Bottom Fixed Buttons */}
         {selectedOption && (
-          <TouchableOpacity
-            onPress={handleNext}
-            className="mt-6 bg-blue-600 py-3 rounded-lg"
-          >
-            <Text className="text-white text-center font-semibold text-base">Next</Text>
-          </TouchableOpacity>
+          <View className="flex-row justify-between items-center px-6 py-4 bg-white border-t border-gray-200">
+            <TouchableOpacity
+              onPress={handleBack}
+              className="flex-1 mr-2 bg-gray-200 py-3 rounded-xl"
+            >
+              <Text className="text-center text-gray-800 font-medium">Back</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={handleNext}
+              className="flex-1 ml-2 bg-blue-600 py-3 rounded-xl"
+            >
+              <Text className="text-center text-white font-medium">Next</Text>
+            </TouchableOpacity>
+          </View>
         )}
-      </ScrollView>
-    </View>
+      </View>
     </SafeAreaView>
   );
 }
