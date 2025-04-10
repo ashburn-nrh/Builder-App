@@ -16,13 +16,15 @@ export default function PostJobScreen() {
   }));
 
   return (
-    <SafeAreaView className="flex-1 bg-white">
+    <SafeAreaView className="flex-1 bg-primary">
       {/* Header */}
       <View className="flex-row items-center px-4 py-4 bg-gray-100 border-b border-gray-200">
         <TouchableOpacity onPress={() => router.back()} className="mr-4">
           <Ionicons name="arrow-back" size={24} color="black" />
         </TouchableOpacity>
-        <Text className="text-xl font-bold text-gray-800">Select Job Category</Text>
+                  <Text className="text-blue-500 text-xl font-extrabold">
+                    <Text className="text-blue-500 text-2xl">B</Text>UILDER NETWORK
+                  </Text>
       </View>
 
       {/* Body Content */}
@@ -34,7 +36,7 @@ export default function PostJobScreen() {
             Network's screened and reviewed{"\n"}
             Tradespeople near you
           </Text>
-
+          <Text className="text-base font-bold text-gray-600 mb-2">What would you like to have done?</Text>
           <DropDownPicker
             open={open}
             value={value}

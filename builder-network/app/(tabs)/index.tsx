@@ -39,19 +39,19 @@ export default function HomeScreen() {
             <View className="pt-10">
               <Link href="/post-job" asChild>
                 <TouchableOpacity className="px-4 py-4 border-b border-gray-100">
-                  <Text className="text-gray-700 text-base">Post Job</Text>
+                  <Text className="text-gray-700 text-base pl-4">Post Job</Text>
                 </TouchableOpacity>
               </Link>
 
               <Link href="/login" asChild>
                 <TouchableOpacity className="px-4 py-4 border-b border-gray-100">
-                  <Text className="text-gray-700 text-base">Login</Text>
+                  <Text className="text-gray-700 text-base pl-4">Login</Text>
                 </TouchableOpacity>
               </Link>
 
               <Link href="/sign-up" asChild>
                 <TouchableOpacity className="px-4 py-4">
-                  <Text className="text-gray-700 text-base">Sign Up</Text>
+                  <Text className="text-gray-700 text-base pl-4">Sign Up as a tradesperson</Text>
                 </TouchableOpacity>
               </Link>
             </View>
