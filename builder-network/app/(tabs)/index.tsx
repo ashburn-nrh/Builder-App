@@ -1,4 +1,12 @@
-import { View, Text, TouchableOpacity, SafeAreaView, Dimensions, StatusBar } from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  SafeAreaView,
+  Dimensions,
+  StatusBar,
+  useColorScheme,
+} from 'react-native';
 import React, { useState } from 'react';
 import { Link } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
@@ -7,10 +15,15 @@ const screenWidth = Dimensions.get('window').width;
 
 export default function HomeScreen() {
   const [open, setOpen] = useState(false);
+  const colorScheme = useColorScheme(); // Detect system theme
+  const isDarkMode = colorScheme === 'dark';
 
   return (
     <>
-      <StatusBar backgroundColor="#1f2937" barStyle="light-content" />
+      <StatusBar
+        backgroundColor={isDarkMode ? 'black' : 'white'}
+        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+      />
       <SafeAreaView className="flex-1 bg-blue-700">
         {/* Header */}
         <View className="flex-row justify-between items-center px-4 py-4 bg-gray-900 border-b border-gray-300">
@@ -27,7 +40,7 @@ export default function HomeScreen() {
         {open && (
           <View
             style={{ width: screenWidth, top: 100 }}
-            className="absolute left-0 bg-white border-y border-gray-200 z-50 shadow-md"
+            className="absolute left-0 bg-white border-y border-gray-200 z-50 shadow-md mt-5"
           >
             <TouchableOpacity
               onPress={() => setOpen(false)}
@@ -36,7 +49,7 @@ export default function HomeScreen() {
               <Ionicons name="close" size={24} color="gray" />
             </TouchableOpacity>
 
-            <View className="pt-10">
+            <View className="pt-8">
               <Link href="/post-job" asChild>
                 <TouchableOpacity className="px-4 py-4 border-b border-gray-100">
                   <Text className="text-gray-700 text-base pl-4">Post Job</Text>
@@ -59,17 +72,17 @@ export default function HomeScreen() {
         )}
 
         {/* Main Content */}
-        <View className='flex-1  justify-center px-10 '> 
-        <Text className="text-white tracking-wider text-sm mb-3">
+        <View className="flex-1 justify-center px-10">
+          <Text className="text-white tracking-wider text-sm mb-3">
             THE RELIABLE WAY TO HIRE A
           </Text>
           <Text className="text-white text-4xl font-extrabold leading-tight mb-4">
             TRADES PERSON
           </Text>
-          </View>
+        </View>
 
-          {/* CTA box */}
-          <View className="flex-1 px-10 ">
+        {/* CTA box */}
+        <View className="flex-1 px-10 ">
           <View className="bg-white px-4 py-3 rounded-2xl w-64">
             <Text className="text-gray-700 font-bold text-lg mb-1">What Is Your Job?</Text>
             <TouchableOpacity className="flex-row items-center justify-between">
@@ -77,12 +90,11 @@ export default function HomeScreen() {
               <Ionicons name="arrow-forward" size={16} color="black" />
             </TouchableOpacity>
           </View>
-          </View>
+        </View>
 
-
-          {/* footer stats  */} 
-          <View className="bg-black py-10 px-6 flex-row flex-wrap justify-around">
-          <View className="items-center   mb-6">
+        {/* footer stats */}
+        <View className="bg-black py-10 px-6 flex-row flex-wrap justify-around">
+          <View className="items-center mb-6">
             <Text className="text-white text-3xl font-bold">232,870</Text>
             <Text className="text-gray-400 text-sm">tradespeople</Text>
           </View>
@@ -94,7 +106,7 @@ export default function HomeScreen() {
             <Text className="text-white text-3xl font-bold">2,509,604</Text>
             <Text className="text-gray-400 text-sm">reviews</Text>
           </View>
-          </View>
+        </View>
       </SafeAreaView>
     </>
   );
