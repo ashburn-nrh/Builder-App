@@ -22,17 +22,19 @@ export default function MyJobScreen() {
   const router = useRouter();
 
   return (
-    <SafeAreaView className="flex-1 bg-white">
-    <View className="flex-1 bg-white p-4">
-      <Text className="text-2xl font-bold text-gray-800 mb-4">My Jobs</Text>
+    <SafeAreaView className="flex-1 bg-primary ">
+    <View className="flex-1 bg-primary p-4">
+      <Text className="text-2xl font-bold text-gray-800 mb-6">My Jobs</Text>
+
 
       <FlatList
+      className='' 
         data={dummyJobs}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <TouchableOpacity
             onPress={() => router.push(`/my-job/${item.id}`)}
-            className="mb-4 p-4 bg-gray-100 rounded-lg shadow-sm"
+            className="mb-4 p-4 bg-white rounded-lg shadow-sm"
           >
             <Text className="text-lg font-semibold text-gray-800">{item.category}</Text>
             <Text className="text-gray-600">{item.option}</Text>
