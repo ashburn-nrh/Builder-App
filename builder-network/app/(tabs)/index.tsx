@@ -10,6 +10,7 @@ import {
 import React, { useState } from 'react';
 import { Link } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
+import LightLogo from '@/components/LightLogo';
 
 const screenWidth = Dimensions.get('window').width;
 
@@ -27,8 +28,9 @@ export default function HomeScreen() {
       <SafeAreaView className="flex-1 bg-blue-700">
         {/* Header */}
         <View className="flex-row justify-between items-center px-4 py-4 bg-gray-900 border-b border-gray-300">
-          <Text className="text-white text-xl font-extrabold">
-            <Text className="text-blue-500 text-2xl">B</Text>UILDER NETWORK
+          <LightLogo />
+          <Text className="text-white text-xl font-extrabold px-5">
+            <Text className="text-blue-500 text-2xl ">B</Text>UILDER NETWORK
           </Text>
 
           <TouchableOpacity onPress={() => setOpen(!open)} className="p-2">

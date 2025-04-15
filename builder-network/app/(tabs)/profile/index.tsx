@@ -10,7 +10,7 @@ const Index = () => {
         <Text className="text-3xl font-bold text-gray-800 mb-8">Profile</Text>
 
         <ProfileAvatar  
-          name="John Doe"
+          name="Ashburn"
           imageUrl="https://randomuser.me/api/portraits/men/10.jpg"
         />
 
