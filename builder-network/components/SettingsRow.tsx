@@ -10,9 +10,9 @@ interface SettingsRowProps {
 
 const SettingsRow: React.FC<SettingsRowProps> = ({ iconName, label, onPress }) => {
   return (
-    <>
-      <TouchableOpacity onPress={onPress}>
-        <View className="flex-row items-center justify-between m-2">
+    <View className="border-b border-gray-300">
+      <TouchableOpacity onPress={onPress} activeOpacity={0.7}>
+        <View className="flex-row items-center justify-between py-4 px-2">
           <View className="flex-row items-center">
             <Ionicons name={iconName} size={24} color="gray" />
             <Text className="text-gray-700 text-lg pl-4">{label}</Text>
@@ -20,8 +20,7 @@ const SettingsRow: React.FC<SettingsRowProps> = ({ iconName, label, onPress }) =
           <Ionicons name="arrow-forward" size={24} color="gray" />
         </View>
       </TouchableOpacity>
-      <View className="h-px bg-gray-300 my-2" />
-    </>
+    </View>
   );
 };
 

@@ -6,16 +6,16 @@ import SettingsRow from '@/components/SettingsRow';
 const Index = () => {
   return (
     <SafeAreaView className="flex-1 bg-primary">
-      <View className="flex-1 bg-primary p-4">
-        <Text className="text-3xl font-bold text-gray-800 mb-6">Profile</Text>
+      <View className="flex-1 bg-primary px-6 pt-6">
+        <Text className="text-3xl font-bold text-gray-800 mb-8">Profile</Text>
 
         <ProfileAvatar  
           name="John Doe"
-          imageUrl="https://fastly.picsum.photos/id/999/200/200.jpg?hmac=iwXALEStJtHL4Thxk_YbLNHNmjq9ZrIQYFUvtxndOaU"
+          imageUrl="https://randomuser.me/api/portraits/men/10.jpg"
         />
 
         {/* ACCOUNT SECTION */}
-        <Text className="text-xl font-semibold text-gray-800 mt-6 mb-3">Account</Text>
+        <Text className="text-xl font-semibold text-gray-800 mt-10 mb-4">Account</Text>
 
         <SettingsRow 
           iconName="person-outline"
@@ -29,7 +29,7 @@ const Index = () => {
         />
 
         {/* PREFERENCES SECTION */}
-        <Text className="text-xl font-semibold text-gray-800 mt-6 mb-3">Preferences</Text>
+        <Text className="text-xl font-semibold text-gray-800 mt-10 mb-4">Preferences</Text>
 
         <SettingsRow 
           iconName="moon-outline"
@@ -43,7 +43,7 @@ const Index = () => {
         />
 
         {/* OTHERS */}
-        <Text className="text-xl font-semibold text-gray-800 mt-6 mb-3">Others</Text>
+        <Text className="text-xl font-semibold text-gray-800 mt-10 mb-4">Others</Text>
 
         <SettingsRow 
           iconName="log-out-outline"
