@@ -1,5 +1,5 @@
 import { View, Text, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { jobCategories } from '@/constants/JobCategory';
 import { Ionicons } from '@expo/vector-icons';
@@ -9,22 +9,31 @@ export default function JobDetails() {
   const job = Array.isArray(category) ? category[0] : category;
   const router = useRouter();
 
-  const followUp = jobCategories[job];
-
-
-
-  const [steps, setSteps] = useState<any[]>(followUp ? [followUp] : []);
+  const [steps, setSteps] = useState<any[]>([]);
   const [selections, setSelections] = useState<string[]>([]);
 
-  const handleOptionSelect = (option: any) => {
-    const currentStep = steps[steps.length - 1];
+  // Reset steps and selections when category/job changes
+  useEffect(() => {
+    const followUp = jobCategories[job];
+    if (followUp) {
+      setSteps([followUp]);
+      setSelections([]);
+    } else {
+      setSteps([]);
+      setSelections([]);
+    }
+  }, [job]);
 
-    // Add selected option
-    setSelections(prev => [...prev, typeof option === 'string' ? option : option.label]);
+  const handleOptionSelect = (stepIndex: number, option: any) => {
+    const label = typeof option === 'string' ? option : option.label;
 
-    // If the option has a next step, add it
+    const newSelections = [...selections];
+    newSelections[stepIndex] = label;
+    setSelections(newSelections);
+
+    setSteps(prev => prev.slice(0, stepIndex + 1));
     if (option.next) {
-      setSteps(prev => [...prev, option.next]);
+      setSteps(prev => [...prev.slice(0, stepIndex + 1), option.next]);
     }
   };
 
@@ -38,9 +47,12 @@ export default function JobDetails() {
   };
 
   const handleNext = () => {
-    // You can send the selections to the next screen via query or context
     router.push(`/post-job/${job}/invite`);
   };
+
+  const followUp = jobCategories[job];
+  const allQuestionsAnswered = steps.length === selections.length &&
+    !steps[steps.length - 1]?.options?.find((opt: any) => opt.next);
 
   if (!followUp) {
     return (
@@ -51,9 +63,6 @@ export default function JobDetails() {
       </View>
     );
   }
-
-  const currentStep = steps[steps.length - 1];
-  const selected = selections[steps.length - 1];
 
   return (
     <SafeAreaView className="flex-1 bg-primary">
@@ -71,21 +80,30 @@ export default function JobDetails() {
         {/* Content */}
         <ScrollView className="bg-primary" contentContainerStyle={{ padding: 16, paddingBottom: 100 }}>
           <Text className="text-xl font-bold text-gray-800 mb-5">Job Details: {job}</Text>
-          <Text className="text-lg font-semibold mb-4">{currentStep.question}</Text>
 
-          {currentStep.options.map((option: any, index: number) => {
-            const label = typeof option === 'string' ? option : option.label;
-            const isSelected = selections[steps.length - 1] === label;
+          {steps.map((step, index) => {
+            const selected = selections[index];
+
             return (
-              <TouchableOpacity
-                key={index}
-                onPress={() => handleOptionSelect(option)}
-                className={`mb-3 p-4 rounded-lg border ${
-                  isSelected ? 'border-blue-500 bg-blue-50' : 'border-gray-300 bg-gray-50'
-                }`}
-              >
-                <Text className="text-gray-800">{label}</Text>
-              </TouchableOpacity>
+              <View key={index} className="mb-6">
+                <Text className="text-lg font-semibold mb-4">{step.question}</Text>
+                {step.options.map((option: any, optIndex: number) => {
+                  const label = typeof option === 'string' ? option : option.label;
+                  const isSelected = selected === label;
+
+                  return (
+                    <TouchableOpacity
+                      key={optIndex}
+                      onPress={() => handleOptionSelect(index, option)}
+                      className={`mb-3 p-4 rounded-lg border ${
+                        isSelected ? 'border-blue-500 bg-blue-50' : 'border-gray-300 bg-gray-50'
+                      }`}
+                    >
+                      <Text className="text-gray-800">{label}</Text>
+                    </TouchableOpacity>
+                  );
+                })}
+              </View>
             );
           })}
         </ScrollView>
@@ -96,7 +114,7 @@ export default function JobDetails() {
             <Text className="text-center text-gray-800 font-medium">Back</Text>
           </TouchableOpacity>
 
-          {steps.length > 0 && (!currentStep.options[0]?.next || selections.length === steps.length) && (
+          {allQuestionsAnswered && (
             <TouchableOpacity onPress={handleNext} className="flex-1 ml-2 bg-blue-600 py-3 rounded-xl">
               <Text className="text-center text-white font-medium">Next</Text>
             </TouchableOpacity>
