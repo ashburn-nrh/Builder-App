@@ -3,14 +3,17 @@ import React, { useState } from 'react';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-import { jobCategories } from '../../../constants/JobCategory';
+
+// ✅ Correct import – adjust if using default export
+import { jobCategories } from '@/constants/JobCategory'; 
 
 export default function PostJobScreen() {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState<string | null>(null);
   const router = useRouter();
 
-  const items = jobCategories.map((job) => ({
+  // ✅ Safe fallback to prevent map crash
+  const items = Object.keys(jobCategories).map((job) => ({
     label: job,
     value: job,
   }));
@@ -22,9 +25,9 @@ export default function PostJobScreen() {
         <TouchableOpacity onPress={() => router.back()} className="mr-4">
           <Ionicons name="arrow-back" size={24} color="black" />
         </TouchableOpacity>
-                  <Text className="text-blue-500 text-xl font-extrabold">
-                    <Text className="text-blue-500 text-2xl">B</Text>UILDER NETWORK
-                  </Text>
+        <Text className="text-blue-500 text-xl font-extrabold">
+          <Text className="text-blue-500 text-2xl">B</Text>UILDER NETWORK
+        </Text>
       </View>
 
       {/* Body Content */}
@@ -36,23 +39,30 @@ export default function PostJobScreen() {
             Network's screened and reviewed{"\n"}
             Tradespeople near you
           </Text>
-          <Text className="text-base font-bold text-gray-600 mb-2">What would you like to have done?</Text>
+
+          <Text className="text-base font-bold text-gray-600 mb-2">
+            What would you like to have done?
+          </Text>
+
           <DropDownPicker
-            open={open}
-            value={value}
-            items={items}
-            setOpen={setOpen}
-            setValue={setValue}
-            setItems={() => {}}
-            placeholder="Choose a job category"
-            style={{ borderColor: '#ccc', zIndex: 1000 }}
-            dropDownContainerStyle={{ borderColor: '#ccc', zIndex: 999 }}
-            textStyle={{ fontSize: 16 }}
-          />
+  open={open}
+  value={value}
+  items={Object.keys(jobCategories).map((job) => ({
+    label: job,
+    value: job,
+  }))}
+  setOpen={setOpen}
+  setValue={setValue}
+  placeholder="Choose a job category"
+  style={{ borderColor: '#ccc', zIndex: 1000 }}
+  dropDownContainerStyle={{ borderColor: '#ccc', zIndex: 999 }}
+  textStyle={{ fontSize: 16 }}
+/>
+
         </View>
       </View>
 
-      {/* Fixed Bottom Button */}
+      {/* Bottom Button */}
       {value && (
         <View className="absolute bottom-6 left-0 right-0 px-6">
           <TouchableOpacity
