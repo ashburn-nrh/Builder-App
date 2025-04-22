@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { jobCategories } from '@/constants/JobCategory';
 import { Ionicons } from '@expo/vector-icons';
+import LightLogo from '@/components/LightLogo';
 
 export default function JobDetails() {
   const { category } = useLocalSearchParams();
@@ -68,18 +69,22 @@ export default function JobDetails() {
     <SafeAreaView className="flex-1 bg-primary">
       <View className="flex-1 bg-white">
         {/* Header */}
-        <View className="flex-row px-6 py-4 bg-white border-b border-gray-200">
-          <TouchableOpacity onPress={handleBack} className="mr-4">
-            <Ionicons name="arrow-back" size={24} color="black" />
-          </TouchableOpacity>
-          <Text className="text-blue-500 text-xl font-extrabold">
-            <Text className="text-blue-500 text-2xl">B</Text>UILDER NETWORK
-          </Text>
-        </View>
+              <View className="flex-row items-center px-4 py-4 bg-white border-b border-gray-200">
+                <TouchableOpacity onPress={() => router.back()} className="mr-4 px-3">
+                  <Ionicons name="arrow-back" size={24} color="black" />
+                </TouchableOpacity>
+                <View className="grid grid-cols-3 items-end">
+                  <LightLogo />
+                  <Text className="text-blue-500 text-xl font-extrabold">
+                    THE <Text className="text-blue-500 text-2xl">B</Text>UILDER NETWORK
+                  </Text>
+                </View>
+              </View>
 
         {/* Content */}
         <ScrollView className="bg-primary" contentContainerStyle={{ padding: 16, paddingBottom: 100 }}>
-          <Text className="text-xl font-bold text-gray-800 mb-5">Job Details: {job}</Text>
+          <Text className="text-2xl font-bold text-gray-800 mb-5 mt-5">Post an {job} job</Text>
+          <Text className='text-lg text-gray-700 mb-6'>Get responses from The Builder{'\n'} Network's screened {'\n'} and reviewed tradesperson near you </Text>
 
           {steps.map((step, index) => {
             const selected = selections[index];
