@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { jobCategories } from '@/constants/JobCategory';
 import { Ionicons } from '@expo/vector-icons';
-import LightLogo from '@/components/LightLogo';
+import AppHeader from '@/components/AppHeader';
 
 export default function JobDetails() {
   const { category } = useLocalSearchParams();
@@ -69,17 +69,7 @@ export default function JobDetails() {
     <SafeAreaView className="flex-1 bg-primary">
       <View className="flex-1 bg-white">
         {/* Header */}
-              <View className="flex-row items-center px-4 py-4 bg-white border-b border-gray-200">
-                <TouchableOpacity onPress={() => router.back()} className="mr-4 px-3">
-                  <Ionicons name="arrow-back" size={24} color="black" />
-                </TouchableOpacity>
-                <View className="grid grid-cols-3 items-end">
-                  <LightLogo />
-                  <Text className="text-blue-500 text-xl font-extrabold">
-                    THE <Text className="text-blue-500 text-2xl">B</Text>UILDER NETWORK
-                  </Text>
-                </View>
-              </View>
+        <AppHeader onBackPress={()=> router.push('/(tabs)/post-job')}/>
 
         {/* Content */}
         <ScrollView className="bg-primary" contentContainerStyle={{ padding: 16, paddingBottom: 100 }}>

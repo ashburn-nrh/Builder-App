@@ -2,11 +2,12 @@ import { View, Text, TouchableOpacity, SafeAreaView } from 'react-native';
 import React, { useState } from 'react';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { useRouter } from 'expo-router';
-import { Ionicons } from '@expo/vector-icons';
+import AppHeader from '@/components/AppHeader';
+
 
 // ✅ Correct import – adjust if using default export
 import { jobCategories } from '@/constants/JobCategory'; 
-import LightLogo from '@/components/LightLogo';
+
 
 export default function PostJobScreen() {
   const [open, setOpen] = useState(false);
@@ -22,18 +23,7 @@ export default function PostJobScreen() {
   return (
     <SafeAreaView className="flex-1 bg-primary">
       {/* Header */}
-      <View className="flex-row items-center px-4 py-4 bg-white border-b border-gray-200">
-        <TouchableOpacity onPress={() => router.back()} className="mr-4 px-3">
-          <Ionicons name="arrow-back" size={24} color="black" />
-        </TouchableOpacity>
-        <View className="grid grid-cols-3 items-end">
-          <LightLogo />
-          <Text className="text-blue-500 text-xl font-extrabold">
-            THE <Text className="text-blue-500 text-2xl">B</Text>UILDER NETWORK
-          </Text>
-        </View>
-      </View>
-
+      <AppHeader onBackPress={()=>router.push('/(tabs)')} />
 
       {/* Body Content */}
       <View className="flex-1 px-6 pt-10">
