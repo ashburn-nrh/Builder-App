@@ -22,9 +22,9 @@ export default function MyJobScreen() {
   const router = useRouter();
 
   return (
-    <SafeAreaView className="flex-1 bg-primary ">
+    <SafeAreaView className="flex-1  bg-gradient-to-b from-primary to-white ">
     <View className="flex-1 bg-primary p-4">
-      <Text className="text-2xl font-bold text-gray-800 mb-6">My Jobs</Text>
+      <Text className="text-3xl font-bold text-gray-800 mb-6">My Jobs</Text>
 
 
       <FlatList
