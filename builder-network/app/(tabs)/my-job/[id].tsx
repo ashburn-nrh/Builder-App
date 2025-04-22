@@ -46,7 +46,7 @@ export default function JobDetail() {
         <Text className="text-white text-center font-semibold">Edit Job</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity className="border  p-3 rounded-lg">
+      <TouchableOpacity className="border  p-3 rounded-lg" onPress={() => router.push('/(tabs)/my-job/CloseJob')}>
         <Text className="text-black text-center font-semibold">Close Job</Text>
       </TouchableOpacity>
       </View>

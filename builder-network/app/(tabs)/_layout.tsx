@@ -44,6 +44,7 @@ export default function TabLayout() {
       <Tabs.Screen name="sign-up" options={{href:null}}/>
       <Tabs.Screen name="post-job/index" options={{href:null}}/>
       <Tabs.Screen name="my-job/[id]" options={{ href: null }} />
+      <Tabs.Screen name="my-job/CloseJob" options={{ href: null }} />
       
     </Tabs>
   );
