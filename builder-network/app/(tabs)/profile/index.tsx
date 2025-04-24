@@ -1,4 +1,4 @@
-import { Text, View, SafeAreaView } from 'react-native';
+import { Text, View, SafeAreaView, ScrollView } from 'react-native';
 import React from 'react';
 import ProfileAvatar from '@/components/ProfileAvatar';
 import SettingsRow from '@/components/SettingsRow';
@@ -6,7 +6,7 @@ import SettingsRow from '@/components/SettingsRow';
 const Index = () => {
   return (
     <SafeAreaView className="flex-1 bg-primary">
-      <View className="flex-1 bg-primary px-6 pt-6">
+      <ScrollView className="flex-1 px-6 pt-6" contentContainerStyle={{ paddingBottom: 20 }}>
         <Text className="text-3xl font-bold text-gray-800 mb-8">Profile</Text>
 
         <ProfileAvatar  
@@ -22,25 +22,54 @@ const Index = () => {
           label="Contact Information"
           onPress={() => {}}
         />
+        <SettingsRow
+          iconName="person-circle-outline"
+          label="Manage account"
+          onPress={() => {}}
+        />
         <SettingsRow 
-          iconName="lock-closed-outline"
-          label="Change Password"
+          iconName="help-outline"
+          label="My questions"
           onPress={() => {}}
         />
 
-        {/* PREFERENCES SECTION */}
-        <Text className="text-xl font-semibold text-gray-800 mt-10 mb-4">Preferences</Text>
+        {/* SETTINGS SECTION */}
+        <Text className="text-xl font-semibold text-gray-800 mt-10 mb-4">Settings</Text>
 
-        <SettingsRow 
-          iconName="moon-outline"
-          label="Dark Mode"
-          onPress={() => {}}
-        />
         <SettingsRow 
           iconName="notifications-outline"
           label="Notifications"
           onPress={() => {}}
         />
+
+        {/* SUPPORT SECTION */}
+        <Text className="text-xl font-semibold text-gray-800 mt-10 mb-4">Support</Text>
+
+        <SettingsRow 
+          iconName="information-circle-outline"
+          label="Support center"
+          onPress={() => {}}
+        />
+        <SettingsRow 
+          iconName="chatbubble-ellipses-outline"
+          label="Contact us"
+          onPress={() => {}}
+        />
+                <SettingsRow 
+          iconName="grid-outline"
+          label="Download our app"
+          onPress={() => {}}
+        />
+
+        {/* About */}
+        <Text className="text-xl font-semibold text-gray-800 mt-10 mb-4">About</Text>
+
+        <SettingsRow 
+          iconName="book-outline"
+          label=" Terms and conditions"
+          onPress={() => {}}
+        />
+
 
         {/* OTHERS */}
         <Text className="text-xl font-semibold text-gray-800 mt-10 mb-4">Others</Text>
@@ -50,8 +79,7 @@ const Index = () => {
           label="Logout"
           onPress={() => {}}
         />
-
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
