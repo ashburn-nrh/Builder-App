@@ -2,6 +2,7 @@ import { Text, View, SafeAreaView, ScrollView } from 'react-native';
 import React from 'react';
 import ProfileAvatar from '@/components/ProfileAvatar';
 import SettingsRow from '@/components/SettingsRow';
+import { router } from 'expo-router';
 
 const Index = () => {
   return (
@@ -20,7 +21,7 @@ const Index = () => {
         <SettingsRow 
           iconName="person-outline"
           label="Contact Information"
-          onPress={() => {}}
+          onPress={() => {router.push('/profile/contact')}}
         />
         <SettingsRow
           iconName="person-circle-outline"

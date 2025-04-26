@@ -45,6 +45,7 @@ export default function TabLayout() {
       <Tabs.Screen name="post-job/index" options={{href:null}}/>
       <Tabs.Screen name="my-job/[id]" options={{ href: null }} />
       <Tabs.Screen name="my-job/CloseJob" options={{ href: null }} />
+      <Tabs.Screen name="profile/contact/index" options={{ href: null }} />
       
     </Tabs>
   );
