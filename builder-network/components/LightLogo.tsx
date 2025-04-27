@@ -4,7 +4,7 @@ import { View } from 'react-native';
 
 export default function LightLogo() {
   return (
-    <View className="absolute w-[236px] h-[32px]">
+    <View className="absolute w-6 h-6">
       <Svg width="236" height="32" viewBox="0 0 236 32" fill="none">
         <Path
           d="M9.00046 23.5917C13.7828 26.4906 19.8981 24.7707 22.6583 19.7492C25.4197 14.7277 23.7817 8.30718 18.9994 5.40829C14.2171 2.50941 8.10174 4.22936 5.34093 9.25019C2.58012 14.2717 4.21878 20.6928 9.00046 23.5917Z"
