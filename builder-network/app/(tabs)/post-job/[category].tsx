@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, SafeAreaView, TextInput } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { jobCategories } from '@/constants/JobCategory';
@@ -12,6 +12,7 @@ export default function JobDetails() {
 
   const [steps, setSteps] = useState<any[]>([]);
   const [selections, setSelections] = useState<string[]>([]);
+  const [customWork, setCustomWork] = useState(''); // New: specific work input
 
   // Reset steps and selections when category/job changes
   useEffect(() => {
@@ -48,11 +49,13 @@ export default function JobDetails() {
   };
 
   const handleNext = () => {
+    // You can pass customWork as needed, e.g., via router params or context
     router.push(`/post-job/${job}/invite`);
   };
 
   const followUp = jobCategories[job];
-  const allQuestionsAnswered = steps.length === selections.length &&
+  const allQuestionsAnswered =
+    steps.length === selections.length &&
     !steps[steps.length - 1]?.options?.find((opt: any) => opt.next);
 
   if (!followUp) {
@@ -69,12 +72,15 @@ export default function JobDetails() {
     <SafeAreaView className="flex-1 bg-primary">
       <View className="flex-1 bg-white">
         {/* Header */}
-        <AppHeader onBackPress={()=> router.push('/(tabs)/post-job')}/>
+        <AppHeader onBackPress={() => router.push('/(tabs)/post-job')} />
 
         {/* Content */}
         <ScrollView className="bg-primary" contentContainerStyle={{ padding: 16, paddingBottom: 100 }}>
           <Text className="text-2xl font-bold text-gray-800 mb-5 mt-5">Post an {job} job</Text>
-          <Text className='text-lg text-gray-700 mb-6'>Get responses from The Builder{'\n'} Network's screened {'\n'} and reviewed tradesperson near you </Text>
+          <Text className="text-lg text-gray-700 mb-6">
+            Get responses from The Builder{'\n'}
+            Network's screened {'\n'} and reviewed tradesperson near you
+          </Text>
 
           {steps.map((step, index) => {
             const selected = selections[index];
@@ -101,6 +107,22 @@ export default function JobDetails() {
               </View>
             );
           })}
+
+          {/* Specific Work Input */}
+          {allQuestionsAnswered && (
+            <View className="mb-6">
+              <Text className="text-lg font-semibold mb-3">Any specific work details?</Text>
+              <TextInput
+                placeholder="Describe the specific task, problem, or details"
+                value={customWork}
+                onChangeText={setCustomWork}
+                multiline
+                numberOfLines={4}
+                className="bg-white border border-gray-300 rounded-xl p-4 text-gray-800"
+                style={{ textAlignVertical: 'top' }}
+              />
+            </View>
+          )}
         </ScrollView>
 
         {/* Bottom Buttons */}
@@ -119,3 +141,4 @@ export default function JobDetails() {
     </SafeAreaView>
   );
 }
+// This code is a React Native component that allows users to post a job by answering a series of questions.
