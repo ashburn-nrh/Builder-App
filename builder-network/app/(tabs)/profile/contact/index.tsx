@@ -26,7 +26,7 @@ const index = () => {
                 onPress={() => {}}
                 className="bg-blue-500 px-24 py-3 rounded-lg"
               >
-                <Text className="text-white font-medium">Invite</Text>
+                <Text className="text-white font-medium">Verify account</Text>
               </TouchableOpacity>
   </View>
 </View>
