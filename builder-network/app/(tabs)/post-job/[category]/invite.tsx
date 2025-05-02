@@ -125,12 +125,12 @@ export default function InviteScreen() {
               <View className="mb-2">{renderStars(item.rating)}</View>
 
               {/* Invite Button */}
-              <View className="flex-row justify-end">
+              <View className=" justify-center">
                 <TouchableOpacity
                   onPress={() => handleInvite(item.name)}
-                  className="bg-blue-500 px-4 py-2 rounded-lg"
+                  className="bg-blue-500 px-4 py-3 rounded-lg"
                 >
-                  <Text className="text-white font-medium">Invite</Text>
+                  <Text className="text-white font-medium text-center">Send Invite</Text>
                 </TouchableOpacity>
               </View>
             </View>
