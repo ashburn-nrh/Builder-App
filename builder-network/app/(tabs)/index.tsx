@@ -64,7 +64,7 @@ export default function HomeScreen() {
                 </TouchableOpacity>
               </Link>
 
-              <Link href="/sign-up" asChild>
+              <Link href="/tradesperson/sign-up" asChild>
                 <TouchableOpacity className="px-4 py-4">
                   <Text className="text-gray-700 text-base pl-4">Sign Up as a tradesperson</Text>
                 </TouchableOpacity>
