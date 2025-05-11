@@ -50,7 +50,7 @@ export default function JobDetails() {
 
   const handleNext = () => {
     // You can pass customWork as needed, e.g., via router params or context
-    router.push(`/post-job/${job}/invite`);
+    router.push(`/post-job/${job}/work-area`);
   };
 
   const followUp = jobCategories[job];
