@@ -30,7 +30,7 @@ const WorkDetails = () => {
     // Save selections or send to backend here
 
     // Navigate to main app
-    router.replace('/(tabs)');
+    router.replace('/(tabs)/tradesperson/Id');
   };
 
   return (
