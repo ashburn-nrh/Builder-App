@@ -2,6 +2,8 @@
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
 import { useRouter, useLocalSearchParams } from 'expo-router';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import AppHeader from '@/components/AppHeader';
 
 export default function ClientDetails() {
   const router = useRouter();
@@ -13,13 +15,15 @@ export default function ClientDetails() {
 
   const handleInvite = () => {
     router.push({
-      pathname: `/post-job/${category}/invite`,
+      pathname: `/client/post-job/${category}/invite`,
       params: { state, district, area, name, phone, email },
     });
   };
 
   return (
-    <View className="flex-1 bg-white p-6 justify-center">
+    <SafeAreaView className="flex-1 bg-white">
+      <AppHeader onBackPress={() => router.back()} />
+    <View className="flex-1 bg-primary p-6 justify-center">
       <Text className="text-2xl font-bold mb-4 text-gray-800">Your Details</Text>
 
       <TextInput
@@ -47,5 +51,6 @@ export default function ClientDetails() {
         <Text className="text-white text-center font-semibold">Continue</Text>
       </TouchableOpacity>
     </View>
+    </SafeAreaView>
   );
 }

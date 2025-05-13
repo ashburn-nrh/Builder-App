@@ -3,42 +3,23 @@ import {
   View,
   Text,
   TouchableOpacity,
-  FlatList,
   Alert,
-  StyleSheet,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import DropDownPicker from 'react-native-dropdown-picker';
 import { router } from 'expo-router';
 
-const professions = [
-  'Plumber',
-  'Electrician',
-  'Painter',
-  'Carpenter',
-  'Welder',
-  'Mason',
-  'AC Mechanic',
-  'Gardener',
-  'Tile Fitter',
-  'Glass Installer',
-  'Cleaner',
-  'Pest Controller',
-];
+const professionOptions = [
+  'Builder', 'Electrician', 'Handyman', 'Painter & Decorator', 'Plasterer', 'Plumber',
+  'Roofer', 'Carpenter & Joiner', 'Landscaper', 'Bathroom Fitter', 'Bricklayer', 'Gas Engineer',
+  'Carpet Fitter', 'Kitchen Fitter', 'Cabinet Maker', 'Tiler', 'Door Fitter', 'Glazier',
+  'Stove Fitter', 'Window Fitter', 'Tree Surgeon', 'Gardener', 'Locksmith', 'Architectural Designer',
+].map((prof) => ({ label: prof, value: prof }));
 
 const WorkDetails = () => {
+  const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState<string[]>([]);
-
-  const toggleSelection = (profession: string) => {
-    if (selected.includes(profession)) {
-      setSelected(selected.filter((item) => item !== profession));
-    } else {
-      if (selected.length >= 5) {
-        Alert.alert('Limit Reached', 'You can only select 5 professions.');
-        return;
-      }
-      setSelected([...selected, profession]);
-    }
-  };
+  const [items, setItems] = useState(professionOptions);
 
   const handleContinue = () => {
     if (selected.length !== 5) {
@@ -56,26 +37,22 @@ const WorkDetails = () => {
     <SafeAreaView className="flex-1 bg-white p-6">
       <Text className="text-2xl font-bold text-gray-800 mb-4">Select 5 Professions</Text>
 
-      <FlatList
-        data={professions}
-        keyExtractor={(item) => item}
-        numColumns={2}
-        columnWrapperStyle={{ justifyContent: 'space-between', marginBottom: 10 }}
-        renderItem={({ item }) => {
-          const isSelected = selected.includes(item);
-          return (
-            <TouchableOpacity
-              onPress={() => toggleSelection(item)}
-              className={`flex-1 m-1 p-3 rounded-lg ${
-                isSelected ? 'bg-blue-600' : 'bg-gray-200'
-              }`}
-            >
-              <Text className={`text-center font-medium ${isSelected ? 'text-white' : 'text-gray-800'}`}>
-                {item}
-              </Text>
-            </TouchableOpacity>
-          );
-        }}
+      <DropDownPicker
+        open={open}
+        value={selected}
+        items={items}
+        setOpen={setOpen}
+        setValue={setSelected}
+        setItems={setItems}
+        multiple={true}
+        min={0}
+        max={5}
+        placeholder="Select up to 5 professions"
+        searchable={true}
+        searchPlaceholder="Search profession..."
+        mode="BADGE"
+        badgeDotColors={['#007bff']}
+        style={{ marginBottom: open ? 180 : 20 }}
       />
 
       <TouchableOpacity
@@ -89,5 +66,3 @@ const WorkDetails = () => {
 };
 
 export default WorkDetails;
-
-const styles = StyleSheet.create({});

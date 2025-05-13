@@ -19,7 +19,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="my-job/index"
+        name="client/my-job/index"
         options={{
           title: 'My Job',
           tabBarIcon: ({ color, size }) => (
@@ -28,7 +28,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="profile/index"
+        name="client/profile/index"
         options={{
           title: 'Profile',
           tabBarIcon: ({ color, size }) => (
@@ -38,14 +38,18 @@ export default function TabLayout() {
       />
 
       {/* 👇 This hides non-tab files from showing in the tab bar */}
-      <Tabs.Screen name="post-job/[category]" options={{ href: null }} />
-      <Tabs.Screen name="post-job/[category]/invite" options={{ href: null }} />
+      <Tabs.Screen name="client/post-job/[category]" options={{ href: null }} />
+      <Tabs.Screen name="client/post-job/[category]/invite" options={{ href: null }} />
       <Tabs.Screen name="login" options={{href:null}}/>
-      <Tabs.Screen name="sign-up" options={{href:null}}/>
-      <Tabs.Screen name="post-job/index" options={{href:null}}/>
-      <Tabs.Screen name="my-job/[id]" options={{ href: null }} />
-      <Tabs.Screen name="my-job/CloseJob" options={{ href: null }} />
-      <Tabs.Screen name="profile/contact/index" options={{ href: null }} />
+      <Tabs.Screen name="tradesperson/sign-up" options={{href:null}}/>
+      <Tabs.Screen name="client/post-job/index" options={{href:null}}/>
+
+      <Tabs.Screen name="client/my-job/CloseJob" options={{ href: null }} />
+      <Tabs.Screen name="client/profile/contact/index" options={{ href: null }} />
+      <Tabs.Screen name="client/post-job/[category]/work-area" options={{ href: null }} />
+      <Tabs.Screen name="client/post-job/[category]/client-details" options={{ href: null }} />
+      <Tabs.Screen name="tradesperson/WorkDetails" options={{ href: null }} />
+
       
     </Tabs>
   );

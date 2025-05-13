@@ -28,7 +28,7 @@ const closejob = () => {
       <View className='flex-1 bg-primary px-2 py-4'>
         {/* Header */}
         <View className='flex-row items-start'>
-        <TouchableOpacity onPress={()=>{router.push('/(tabs)/my-job')}} className="mr-2 ml-2">
+        <TouchableOpacity onPress={()=>{router.push('/(tabs)/client/my-job')}} className="mr-2 ml-2">
         <Ionicons name="arrow-back" size={24} color="black" />
       </TouchableOpacity>
         </View>

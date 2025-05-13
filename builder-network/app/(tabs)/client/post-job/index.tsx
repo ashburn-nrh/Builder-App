@@ -61,7 +61,7 @@ export default function PostJobScreen() {
       {value && (
         <View className="absolute bottom-6 left-0 right-0 px-6">
           <TouchableOpacity
-            onPress={() => router.push(`/post-job/${encodeURIComponent(value)}`)}
+            onPress={() => router.push(`/(tabs)/client/post-job/${encodeURIComponent(value)}`)}
             className="bg-blue-600 py-3 rounded-xl"
           >
             <Text className="text-white text-base font-medium text-center">Next</Text>

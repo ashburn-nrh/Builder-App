@@ -2,6 +2,8 @@
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
 import { useRouter, useLocalSearchParams } from 'expo-router';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import AppHeader from '@/components/AppHeader';
 
 export default function WorkArea() {
   const router = useRouter();
@@ -13,13 +15,15 @@ export default function WorkArea() {
 
   const handleNext = () => {
     router.push({
-      pathname: `/post-job/${category}/client-details`,
+      pathname: `/client/post-job/${category}/client-details`,
       params: { state, district, area },
     });
   };
 
   return (
-    <View className="flex-1 bg-white p-6 justify-center">
+    <SafeAreaView className="flex-1 bg-white">
+      <AppHeader onBackPress={() => router.back()} />
+    <View className="flex-1 bg-primary p-6 justify-center">
       <Text className="text-2xl font-bold mb-4 text-gray-800">Where is the work?</Text>
 
       <TextInput
@@ -45,5 +49,6 @@ export default function WorkArea() {
         <Text className="text-white text-center font-semibold">Next</Text>
       </TouchableOpacity>
     </View>
+    </SafeAreaView>
   );
 }

@@ -52,7 +52,7 @@ export default function HomeScreen() {
             </TouchableOpacity>
 
             <View className="pt-8">
-              <Link href="/post-job" asChild>
+              <Link href="/client/post-job" asChild>
                 <TouchableOpacity className="px-4 py-4 border-b border-gray-100">
                   <Text className="text-gray-700 text-base pl-4">Post Job</Text>
                 </TouchableOpacity>

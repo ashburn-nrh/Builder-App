@@ -47,7 +47,7 @@ export default function MyJobScreen() {
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
             <TouchableOpacity
-              onPress={() => router.push(`/my-job/${item.id}`)}
+              onPress={() => router.push(`/client/my-job/${item.id}`)}
               className="mb-4 p-4 bg-white rounded-xl shadow-md"
             >
               <Text className="text-base text-gray-500 mb-1">{item.datePosted}</Text>

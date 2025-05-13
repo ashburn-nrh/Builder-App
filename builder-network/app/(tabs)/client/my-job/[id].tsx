@@ -50,7 +50,7 @@ export default function JobDetail() {
     <SafeAreaView className="flex-1 bg-gradient-to-b from-primary to-white">
       <View className="flex-1 bg-primary p-6">
         {/* Back Button */}
-        <TouchableOpacity onPress={() => router.push('/my-job')} className="mb-4 flex-row items-center">
+        <TouchableOpacity onPress={() => router.push('/client/my-job')} className="mb-4 flex-row items-center">
           <Ionicons name="arrow-back" size={24} color="black" />
         </TouchableOpacity>
 
@@ -65,7 +65,7 @@ export default function JobDetail() {
 
           <TouchableOpacity
             className="border p-3 rounded-lg"
-            onPress={() => router.push('/(tabs)/my-job/CloseJob')}
+            onPress={() => router.push('/(tabs)/client/my-job/CloseJob')}
           >
             <Text className="text-black text-center font-semibold">Close Job</Text>
           </TouchableOpacity>

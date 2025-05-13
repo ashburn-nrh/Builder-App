@@ -44,13 +44,13 @@ export default function JobDetails() {
       setSteps(prev => prev.slice(0, -1));
       setSelections(prev => prev.slice(0, -1));
     } else {
-      router.push('/post-job');
+      router.push('/client/post-job');
     }
   };
 
   const handleNext = () => {
     // You can pass customWork as needed, e.g., via router params or context
-    router.push(`/post-job/${job}/work-area`);
+    router.push(`/client/post-job/${job}/work-area`);
   };
 
   const followUp = jobCategories[job];
@@ -72,7 +72,7 @@ export default function JobDetails() {
     <SafeAreaView className="flex-1 bg-primary">
       <View className="flex-1 bg-white">
         {/* Header */}
-        <AppHeader onBackPress={() => router.push('/(tabs)/post-job')} />
+        <AppHeader onBackPress={() => router.push('/(tabs)/client/post-job')} />
 
         {/* Content */}
         <ScrollView className="bg-primary" contentContainerStyle={{ padding: 16, paddingBottom: 100 }}>
