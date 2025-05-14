@@ -11,26 +11,6 @@ import { Ionicons } from '@expo/vector-icons';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 
-const iconButtons = [
-  {
-    name: 'send-outline',
-    type: 'Ionicons',
-    label: 'Send invites',
-    route: '/send-invites',
-  },
-  {
-    name: 'message1',
-    type: 'AntDesign',
-    label: 'Get responses',
-    route: '/messages',
-  },
-  {
-    name: 'people-outline',
-    type: 'Ionicons',
-    label: 'Start chats',
-    route: '/people',
-  },
-];
 
 // Updated dummy data with rating and location
 const dummyTradespersons = [
@@ -42,6 +22,26 @@ const dummyTradespersons = [
 export default function InviteScreen() {
   const { category } = useLocalSearchParams<{ category: string }>();
   const router = useRouter();
+  const iconButtons = [
+    {
+      name: 'send-outline',
+      type: 'Ionicons',
+      label: 'Send invites',
+      route: ``,
+    },
+    {
+      name: 'message1',
+      type: 'AntDesign',
+      label: 'Get responses',
+      route: `/client/post-job/getResponses`,
+    },
+    {
+      name: 'people-outline',
+      type: 'Ionicons',
+      label: 'Start chats',
+      route: '/people',
+    },
+  ];
 
   const handleInvite = (name: string) => {
     alert(`Invite sent to ${name}`);
@@ -54,7 +54,7 @@ export default function InviteScreen() {
     return (
       <TouchableOpacity
         key={icon.route}
-        onPress={() => router.push(icon.route)}
+        onPress={() => router.push({ pathname: icon.route })}
         className="items-center"
       >
         <IconComponent name={icon.name as any} size={24} color="black" />

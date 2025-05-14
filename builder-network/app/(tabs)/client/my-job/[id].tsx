@@ -73,10 +73,12 @@ export default function JobDetail() {
 
         {/* Job Info */}
         <View className="bg-blue-100 mb-4 p-5 rounded-lg">
+          <TouchableOpacity onPress={() => router.push(`/(tabs)/client/post-job/getResponses`)}>
           <View className="flex-row items-center m-2">
             <FontAwesome name="commenting-o" size={16} color="#1f2937" />
             <Text className="text-sm text-gray-800 ml-2 underline">0 responses</Text>
           </View>
+          </TouchableOpacity>
 
           <View className="flex-row items-center m-2">
             <MaterialIcons name="date-range" size={16} color="#1f2937" />
