@@ -22,7 +22,7 @@ export default function ClientDetails() {
 
   return (
     <SafeAreaView className="flex-1 bg-white">
-      <AppHeader onBackPress={() => router.back()} />
+      <AppHeader onBackPress={() => router.push('/(tabs)/client/post-job/[category]/work-area')} />
     <View className="flex-1 bg-primary p-6 justify-center">
       <Text className="text-2xl font-bold mb-4 text-gray-800">Your Details</Text>
 
