@@ -1,6 +1,7 @@
 import { View, Text, TextInput, TouchableOpacity, ScrollView, SafeAreaView, Alert } from 'react-native';
 import React, { useState } from 'react';
 import { useRouter, useLocalSearchParams } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
 
 const dummyJobs = {
   '1': {
@@ -54,7 +55,12 @@ export default function EditJob() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-white">
+    <SafeAreaView className="flex-1 bg-primary">
+                <View className='flex-row items-start'>
+        <TouchableOpacity onPress={()=>{router.push('/(tabs)/client/my-job')}} className="mr-2 ml-2">
+        <Ionicons name="arrow-back" size={24} color="black" />
+      </TouchableOpacity>
+        </View>
       <ScrollView contentContainerStyle={{ padding: 20 }}>
         <Text className="text-2xl font-bold mb-4 text-gray-800">Edit Job</Text>
 
