@@ -59,7 +59,8 @@ export default function JobDetail() {
 
         {/* Edit and Close Buttons */}
         <View className="flex-row justify-start gap-3 mb-4">
-          <TouchableOpacity className="bg-gray-500 p-3 rounded-lg">
+          <TouchableOpacity className="bg-gray-500 p-3 rounded-lg"
+          onPress={() => router.push(`/client/my-job/EditJob?id=${id}`)}>
             <Text className="text-white text-center font-semibold">Edit Job</Text>
           </TouchableOpacity>
 
