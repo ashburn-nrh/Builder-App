@@ -3,6 +3,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, ScrollView, Linking, SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons, Feather } from '@expo/vector-icons';
+import { router } from 'expo-router';
 
 export default function GetResponses() {
   const navigation = useNavigation();
@@ -60,7 +61,7 @@ export default function GetResponses() {
         <Text className="text-base text-gray-700 mb-3">
           Invite 10 more recommended tradespeople to get more responses.
         </Text>
-        <TouchableOpacity className="bg-blue-600 py-3 rounded-md items-center">
+        <TouchableOpacity className="bg-blue-600 py-3 rounded-md items-center" onPress={()=>router.push('/(tabs)/client/post-job/[category]/invite')}>
           <Text className="text-white font-medium">View recommended tradespeople</Text>
         </TouchableOpacity>
       </View>

@@ -27,7 +27,7 @@ export default function ClientDashboard() {
 
         {/* Continue CTA */}
         <TouchableOpacity
-          onPress={() => router.push('/client/post-job/select-location')}
+          onPress={() => router.push(`/(tabs)/client/post-job/[category]/invite`)}
           className="bg-blue-600 py-3 px-4 rounded-lg items-center"
         >
           <Text className="text-white text-base font-medium">Continue</Text>
