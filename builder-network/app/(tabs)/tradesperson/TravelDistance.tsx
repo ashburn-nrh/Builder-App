@@ -27,7 +27,7 @@ const TravelDistance = () => {
   
 
   return (
-    <SafeAreaView className="flex-1 bg-[#f7faf7] p-4">
+    <SafeAreaView className="flex-1 bg-primary p-4">
       <Text className="text-2xl font-bold text-gray-900 mb-1">
         How far can you travel for work?
       </Text>

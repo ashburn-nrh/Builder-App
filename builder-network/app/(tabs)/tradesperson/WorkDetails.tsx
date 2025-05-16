@@ -30,11 +30,11 @@ const WorkDetails = () => {
     // Save selections or send to backend here
 
     // Navigate to main app
-    router.replace('/(tabs)/tradesperson/Id');
+    router.replace('/(tabs)/tradesperson/TravelDistance');
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-white p-6">
+    <SafeAreaView className="flex-1 bg-primary p-6">
       <Text className="text-2xl font-bold text-gray-800 mb-4">Select 5 Professions</Text>
 
       <DropDownPicker
