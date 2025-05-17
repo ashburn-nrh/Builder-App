@@ -5,26 +5,27 @@ import {
   Switch,
   TouchableOpacity,
   Dimensions,
+  TextInput,
 } from 'react-native';
 import Slider from '@react-native-community/slider';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
 import { WebView } from 'react-native-webview';
 
-const { width, height} = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
 const TravelDistance = () => {
   const [distance, setDistance] = useState(15); // in miles
   const [workEverywhere, setWorkEverywhere] = useState(false);
+  const [location, setLocation] = useState('');
 
   const googleMapsUrl = `https://www.google.com/maps/@12.9716,77.5946,12z`;
-    // Replace with actual coordinates
+  // You can dynamically set coordinates based on the location input
 
   const handleContinue = () => {
-    // You can send `distance` and `workEverywhere` to your backend or context here
+    // You can send `location`, `distance`, and `workEverywhere` to your backend or context here
     router.replace('/(tabs)/tradesperson/TravelDistance'); // Replace with actual route
   };
-  
 
   return (
     <SafeAreaView className="flex-1 bg-primary p-4">
@@ -35,6 +36,19 @@ const TravelDistance = () => {
         Set the maximum distance you are willing to travel from your location.
       </Text>
 
+      {/* Current Location Input */}
+      <View className="mb-4">
+        <Text className="text-gray-700 font-medium mb-1">Your Location</Text>
+        <TextInput
+          className="border border-gray-300 rounded-md px-3 py-2 text-gray-800 bg-white"
+          placeholder="Enter your current location"
+          placeholderTextColor="#9CA3AF"
+          value={location}
+          onChangeText={setLocation}
+        />
+      </View>
+
+      {/* Distance Slider */}
       <View className="mb-4">
         <Text className="text-blue-600 font-semibold mb-1">
           438 leads in your work area
@@ -51,20 +65,21 @@ const TravelDistance = () => {
         />
         <Text className="text-sm text-gray-700 mt-1">{distance} miles</Text>
       </View>
-      <WebView
-        source={{ uri: googleMapsUrl }}
-        style={{ width, height }}
-      />
 
+      {/* Google Maps WebView */}
+      <WebView source={{ uri: googleMapsUrl }} style={{ width, height: 200 }} />
+
+      {/* Work Everywhere Switch */}
       <View className="flex-row items-center my-6">
         <Switch
           value={workEverywhere}
           onValueChange={setWorkEverywhere}
           thumbColor={workEverywhere ? '#2563eb' : '#ccc'}
         />
-        <Text className="ml-2 text-gray-800">I work throughout the </Text>
+        <Text className="ml-2 text-gray-800">I work throughout the area</Text>
       </View>
 
+      {/* Continue Button */}
       <TouchableOpacity
         onPress={handleContinue}
         className="bg-blue-700 py-3 rounded-lg"
