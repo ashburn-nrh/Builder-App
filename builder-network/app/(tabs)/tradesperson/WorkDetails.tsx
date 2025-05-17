@@ -8,6 +8,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { router } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
 
 const professionOptions = [
   'Builder', 'Electrician', 'Handyman', 'Painter & Decorator', 'Plasterer', 'Plumber',
@@ -32,9 +33,15 @@ const WorkDetails = () => {
     // Navigate to main app
     router.replace('/(tabs)/tradesperson/TravelDistance');
   };
+    const handleBack = () => {
+      router.push('/(tabs)/tradesperson/sign-up');
+    };
 
   return (
     <SafeAreaView className="flex-1 bg-primary p-6">
+              <TouchableOpacity onPress={handleBack} className="mb-4">
+                <Ionicons name="arrow-back" size={24} color="#1f2937" />
+              </TouchableOpacity>
       <Text className="text-2xl font-bold text-gray-800 mb-4">Select 5 Professions</Text>
 
       <DropDownPicker
