@@ -15,12 +15,12 @@ export default function AppHeader({ onBackPress }: AppHeaderProps) {
       </TouchableOpacity>
 
       {/* Logo and Title container with flex */}
-      <View className="flex-row items-center flex-1 gap-2">
+      <View className="flex-row items-center flex-1 gap-1">
         <LightLogo />
 
         {/* Wrapping text in a View to prevent overflow */}
         <View className="flex-shrink ">
-          <Text className="text-blue-500 text-xl font-extrabold" numberOfLines={1}>
+          <Text className="text-blue-500 text-xl font-extrabold px-6" numberOfLines={1}>
             THE <Text className="text-blue-500 text-2xl">B</Text>UILDER NETWORK
           </Text>
         </View>
