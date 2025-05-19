@@ -13,6 +13,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
 import { WebView } from 'react-native-webview';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import AppHeader from '@/components/AppHeader';
 
 const { width, height } = Dimensions.get('window');
 
@@ -32,12 +33,10 @@ const TravelDistance = () => {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-primary">
-      <ScrollView contentContainerStyle={{ padding: 16 }}>
-        {/* Back Button */}
-        <TouchableOpacity onPress={handleBack} className="mb-4">
-          <Ionicons name="arrow-back" size={24} color="#1f2937" />
-        </TouchableOpacity>
+    <SafeAreaView className="flex-1 bg-white">
+      <AppHeader onBackPress={()=>router.push('/(tabs)/tradesperson/work-details/WorkDetails')} />
+      <ScrollView contentContainerStyle={{ padding: 16 }} className='bg-primary'>
+
 
         {/* Title */}
         <Text className="text-2xl font-bold text-gray-900 mb-1">
