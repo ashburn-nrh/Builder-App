@@ -26,7 +26,7 @@ const Signup = () => {
       await AsyncStorage.setItem('userPhone', phone);
       await AsyncStorage.setItem('userMarketingOptIn', JSON.stringify(marketing));
 
-      router.push('/tradesperson/WorkDetails');
+      router.push('/tradesperson/work-details/WorkDetails');
     } catch (error) {
       console.error('Failed to save user info:', error);
     }

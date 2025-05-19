@@ -31,7 +31,7 @@ const WorkDetails = () => {
     // Save selections or send to backend here
 
     // Navigate to main app
-    router.replace('/(tabs)/tradesperson/TravelDistance');
+    router.replace('/(tabs)/tradesperson/work-details/TravelDistance');
   };
     const handleBack = () => {
       router.push('/(tabs)/tradesperson/sign-up');

@@ -24,11 +24,11 @@ const TravelDistance = () => {
   const googleMapsUrl = `https://www.google.com/maps/@12.9716,77.5946,12z`;
 
   const handleContinue = () => {
-    router.push('/(tabs)/tradesperson/TravelDistance'); // Replace with actual route
+    router.push('/(tabs)/tradesperson/work-details/WorkDetailsStep1'); // Replace with actual route
   };
 
   const handleBack = () => {
-    router.push('/(tabs)/tradesperson/WorkDetails');
+    router.push('/(tabs)/tradesperson/work-details/WorkDetails');
   };
 
   return (

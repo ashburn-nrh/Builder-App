@@ -48,7 +48,9 @@ export default function TabLayout() {
       <Tabs.Screen name="client/profile/contact/index" options={{ href: null }} />
       <Tabs.Screen name="client/post-job/[category]/work-area" options={{ href: null }} />
       <Tabs.Screen name="client/post-job/[category]/client-details" options={{ href: null }} />
-      <Tabs.Screen name="tradesperson/WorkDetails" options={{ href: null }} />
+      <Tabs.Screen name="tradesperson/work-details/WorkDetails" options={{ href: null }} />
+      <Tabs.Screen name='tradesperson/work-details/WorkDetailsStep1' options={{ href: null }} />
+      <Tabs.Screen name='tradesperson/work-details/TravelDistance' options={{ href: null }} />
 
       
     </Tabs>
