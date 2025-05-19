@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Pressable, ScrollView, Platform } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons'; // Works for both platforms
 import { useNavigation } from '@react-navigation/native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import AppHeader from '@/components/AppHeader';
+import { router } from 'expo-router';
 
 const businessTypes = [
   'Self employed / sole trader',
@@ -16,7 +19,9 @@ const WorkDetailsStep1 = () => {
   const navigation = useNavigation();
 
   return (
-    <ScrollView className="flex-1 bg-[#F7FDF6] px-6 pt-10">
+    <SafeAreaView className="flex-1 bg-primary">
+      <AppHeader onBackPress={() => router.push('/(tabs)/tradesperson/work-details/TravelDistance')} />
+    <ScrollView className="flex-1 bg-primary px-6 pt-5">
       {/* Header */}
       <Text className="text-lg font-semibold text-black mb-1">Work details</Text>
 
@@ -67,6 +72,7 @@ const WorkDetailsStep1 = () => {
         </TouchableOpacity>
       </View>
     </ScrollView>
+    </SafeAreaView>
   );
 };
 
