@@ -57,9 +57,9 @@ const WorkDetailsStep1 = () => {
               selectedType ? 'bg-blue-500' : 'bg-gray-300'
             }`}
             disabled={!selectedType}
-            onPress={() => {
+            onPress={() => router.push('/(tabs)/tradesperson/work-details/WorkDetailsStep2')
               // Handle continue logic
-            }}
+            }
           >
             <Text className="text-center text-white font-semibold text-base">Continue</Text>
           </TouchableOpacity>
