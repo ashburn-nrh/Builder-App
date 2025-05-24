@@ -71,6 +71,7 @@ export default function SelectIDScreen() {
         <Text className="text-blue-400 text-base">Upload later</Text>
         <Pressable
           disabled={!selected}
+            onPress={() => router.push('/(tabs)/tradesperson/work-details/ReviewIDCardScreen')}
           className={`px-6 py-3 rounded-xl ${
             selected ? 'bg-blue-600' : 'bg-blue-300'
           }`}
