@@ -12,7 +12,7 @@ import Slider from '@react-native-community/slider';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
 import { WebView } from 'react-native-webview';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+
 import AppHeader from '@/components/AppHeader';
 
 const { width, height } = Dimensions.get('window');
