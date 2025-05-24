@@ -13,7 +13,7 @@ const WorkDetailsStep2 = () => {
   return (
     <SafeAreaView className="flex-1 bg-white ">
         <AppHeader onBackPress={()=> router.push('/(tabs)/tradesperson/work-details/WorkDetailsStep1')} />
-    <View className="flex-1 bg-[#f7fdf5] px-6 pt-5">
+    <View className="flex-1 bg-primary px-6 pt-5">
       {/* Header */}
       <View className="flex-row items-center justify-between mb-6">
         <Text className="text-lg font-bold text-gray-800">Work details</Text>
@@ -45,17 +45,14 @@ const WorkDetailsStep2 = () => {
       {/* Postcode */}
       <Text className="text-sm font-medium text-gray-700 mb-1">Postcode <Text className="text-red-500">*</Text></Text>
       <View className="flex-row items-center border border-gray-300 rounded-md px-4 py-3 bg-white mb-6">
-        <Text className="text-sm text-gray-800">SW1A0AA</Text>
-        <Text className="text-sm text-gray-500 ml-2">| St James, London</Text>
+        <Text className="text-sm text-gray-800">530068</Text>
+        <Text className="text-sm text-gray-500 ml-2">| Bangalore,Karnataka</Text>
       </View>
 
       {/* Navigation buttons */}
-      <View className="flex-row justify-between">
-        <TouchableOpacity className="bg-gray-100 px-6 py-3 rounded-md">
-          <Text className="text-sm text-gray-600">Back</Text>
-        </TouchableOpacity>
-        <TouchableOpacity className="bg-blue-500 px-6 py-3 rounded-md">
-          <Text className="text-sm text-white">Continue</Text>
+      <View className="flex-row justify-center">
+        <TouchableOpacity className="bg-blue-500 w-full py-3 rounded-md" onPress={() => router.push('/(tabs)/tradesperson/work-details/IDCheckScreen')}>
+          <Text className="text-sm text-white text-center font-semibold">Continue</Text>
         </TouchableOpacity>
       </View>
     </View>
