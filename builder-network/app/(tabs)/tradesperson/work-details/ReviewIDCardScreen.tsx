@@ -22,10 +22,10 @@ export default function ReviewIDCardScreen() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-[#F5FBF7] px-4 pt-4">
+    <SafeAreaView className="flex-1 bg-white">
       {/* Header */}
       <AppHeader onBackPress={() => router.push(('/(tabs)/tradesperson/work-details/SelectIDScreen'))} />
-
+        <View className="flex-1 bg-primary px-6 pt-5">
       {/* Title */}
       <Text className="text-3xl font-bold mt-5">Review your Identity card</Text>
       <Text className="text-gray-600 mt-3 mb-6">
@@ -56,10 +56,12 @@ export default function ReviewIDCardScreen() {
       <View className="items-center  mt-6 mb-8">
         <Pressable
           disabled={!imageUri}
+          onPress={()=> router.push('/(tabs)/tradesperson/work-details/VerifySkillsScreen')}
           className={`px-6 py-3 rounded-xl ${imageUri ? 'bg-blue-600' : 'bg-blue-300 '}`}
         >
           <Text className="text-white font-semibold">Submit</Text>
         </Pressable>
+      </View>
       </View>
     </SafeAreaView>
   );

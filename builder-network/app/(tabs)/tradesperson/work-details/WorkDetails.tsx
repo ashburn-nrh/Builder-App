@@ -27,12 +27,16 @@ const WorkDetails = () => {
       Alert.alert('Incomplete', 'Please select exactly 5 professions to continue.');
       return;
     }
+      router.push({
+    pathname: '/(tabs)/tradesperson/work-details/WorkDetailsStep1',
+    params: { skills: JSON.stringify(selected) },
+  });
+};
 
     // Save selections or send to backend here
 
     // Navigate to main app
-    router.replace('/(tabs)/tradesperson/work-details/TravelDistance');
-  };
+
     const handleBack = () => {
       router.push('/(tabs)/tradesperson/sign-up');
     };
