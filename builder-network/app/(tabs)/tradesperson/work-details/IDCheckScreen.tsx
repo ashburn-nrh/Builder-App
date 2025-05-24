@@ -40,16 +40,16 @@ export default function IDCheckScreen() {
       </View>
 
       {/* Buttons */}
-      <View className="flex-row justify-between mt-auto mb-8 space-x-2">
+      <View className="flex-row justify-between mt-auto mb-8 space-x-2 ">
         <Pressable
           onPress={() => router.push('/(tabs)/tradesperson/work-details/WorkDetailsStep2')}
-          className="flex-1 border border-blue-600 py-3 rounded-xl items-center"
+          className="flex-1 border border-blue-600 py-3 rounded-xl items-center mr-2"
         >
           <Text className="text-blue-600 font-medium">Back</Text>
         </Pressable>
         <Pressable
-          onPress={() => console.log('Verify identity')}
-          className="flex-1 bg-blue-600 py-3 rounded-xl items-center"
+          onPress={() => router.push('/(tabs)/tradesperson/work-details/SelectIDScreen')}
+          className="flex-1 bg-blue-600 py-3 rounded-xl items-center ml-2"
         >
           <Text className="text-white font-medium">Verify identity</Text>
         </Pressable>

@@ -18,7 +18,7 @@ export default function SelectIDScreen() {
   return (
     <SafeAreaView className="flex-1 bg-white">
         <AppHeader onBackPress={() => router.push('/(tabs)/tradesperson/work-details/IDCheckScreen')} />
-    <ScrollView contentContainerStyle={{ flexGrow: 1 }} className="flex-1 bg-[#F5FBF7] pt-5 px-4">
+    <ScrollView contentContainerStyle={{ flexGrow: 1 }} className="flex-1 bg-primary pt-5 px-4">
       {/* Header */}
       <View className="flex-row justify-between items-center mb-4">
         <Text className="text-xl font-bold">ID Check</Text>
