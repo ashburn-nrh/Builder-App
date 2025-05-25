@@ -39,7 +39,7 @@ const ProfileSetupScreen = () => {
         <Pressable className="bg-blue-100 px-6 py-3 rounded-lg">
           <Text className="text-blue-500 font-medium">Back</Text>
         </Pressable>
-        <Pressable className="bg-blue-600 px-6 py-3 rounded-lg" onPress={() => router.push('/(tabs)/tradesperson/work-details/StrongestSkill')}>
+        <Pressable className="bg-blue-600 px-6 py-3 rounded-lg" onPress={() => router.push('/(tabs)/tradesperson/work-details/HowItWorks')}>
           <Text className="text-white font-medium">Continue</Text>
         </Pressable>
       </View>
