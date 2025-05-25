@@ -41,7 +41,7 @@ const PrePaymentMethod = () => {
         <TouchableOpacity className="px-5 py-2 border border-blue-400 rounded-md">
           <Text className="text-blue-500 font-medium">Back</Text>
         </TouchableOpacity>
-        <TouchableOpacity className="px-5 py-2 rounded-md bg-blue-600 ml-2 " >
+        <TouchableOpacity className="px-5 py-2 rounded-md bg-blue-600 ml-2 " onPress={()=>router.push('/(tabs)/tradesperson/work-details/PaymentMethod')} >
           <Text className="text-white font-medium">Continue</Text>
         </TouchableOpacity>
       </View>

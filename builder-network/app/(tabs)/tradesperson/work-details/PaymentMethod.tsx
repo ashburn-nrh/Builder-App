@@ -1,6 +1,8 @@
 import { View, Text, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 import { useState } from 'react';
 import { useRouter } from 'expo-router';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import AppHeader from '@/components/AppHeader';
 
 export default function PaymentMethodScreen() {
   const router = useRouter();
@@ -11,7 +13,9 @@ export default function PaymentMethodScreen() {
   const isValid = cardNumber.trim().length >= 12 && expiry.trim().length >= 4 && cvv.trim().length >= 3;
 
   return (
-    <ScrollView className="flex-1 bg-[#F4FBF3] px-6 pt-10">
+    <SafeAreaView className="flex-1 bg-white">
+        <AppHeader onBackPress={() => router.push('/(tabs)/tradesperson/work-details/PrePayment')} />
+    <ScrollView className="flex-1 bg-primary px-6 pt-5">
       <Text className="text-2xl font-bold mb-2">Add your payment method</Text>
       <Text className="text-base text-gray-700 mb-6">
         You won't be charged in this step. You only pay when a customer shares their contact details
@@ -72,5 +76,6 @@ export default function PaymentMethodScreen() {
         </TouchableOpacity>
       </View>
     </ScrollView>
+    </SafeAreaView>
   );
 }

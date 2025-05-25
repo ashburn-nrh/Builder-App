@@ -51,6 +51,15 @@ export default function TabLayout() {
       <Tabs.Screen name="tradesperson/work-details/WorkDetails" options={{ href: null }} />
       <Tabs.Screen name='tradesperson/work-details/WorkDetailsStep1' options={{ href: null }} />
       <Tabs.Screen name='tradesperson/work-details/TravelDistance' options={{ href: null }} />
+      <Tabs.Screen name='tradesperson/work-details/ReviewIDCardScreen' options={{ href: null }} />
+      <Tabs.Screen name='tradesperson/work-details/SelectIDScreen' options={{ href: null }} />
+      <Tabs.Screen name='tradesperson/work-details/IDCheckScreen' options={{ href: null }} />
+      <Tabs.Screen name='tradesperson/work-details/VerifySkillsScreen' options={{ href: null }} />
+      <Tabs.Screen name='tradesperson/work-details/StrongestSkill' options={{ href: null }} />
+      <Tabs.Screen name='tradesperson/work-details/Qualified' options={{ href: null }} />
+      <Tabs.Screen name='tradesperson/work-details/PaymentMethod' options={{ href: null }} />
+      <Tabs.Screen name='tradesperson/work-details/PrePayment' options={{ href: null }} />
+      <Tabs.Screen name='tradesperson/work-details/profileIntro' options={{ href: null }} />
 
       
     </Tabs>
