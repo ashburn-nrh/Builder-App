@@ -69,7 +69,7 @@ export default function PaymentMethodScreen() {
 
         <TouchableOpacity
           disabled={!isValid}
-          onPress={() => router.push('/(tabs)/tradesperson/work-details/PaymentMethod')} // Or wherever you go after registration
+          onPress={() => router.push('/(tabs)/tradesperson/leads/Newleads')} // Or wherever you go after registration
           className={`px-5 py-2 rounded-md ${isValid ? 'bg-blue-600' : 'bg-blue-300 opacity-60'}`}
         >
           <Text className="text-white font-medium">Save and continue</Text>
