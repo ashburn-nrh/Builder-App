@@ -22,10 +22,6 @@ const ProfileIntroScreen = () => {
       <View className="h-1 w-full bg-gray-200 rounded-full mb-2">
         <View className="h-1 bg-blue-400 rounded-full w-[80%]" />
       </View>
-      <TouchableOpacity className="flex-row items-center justify-end mb-6 space-x-1">
-        <Info size={12} color="black" />
-        <Text className="text-xs underline text-black">All steps</Text>
-      </TouchableOpacity>
 
       {/* Title and Description */}
       <Text className="text-2xl font-bold text-black mb-2">Introduce yourself to future customers</Text>
@@ -64,10 +60,12 @@ const ProfileIntroScreen = () => {
           <Text className="text-blue-500 font-medium">Back</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          className={`px-5 py-2 rounded-md ${text.trim().length === 0 ? 'bg-blue-300 opacity-60' : 'bg-blue-600'}`}
+          className={` px-5 py-2 rounded-md ${text.trim().length === 0 ? 'bg-blue-300 opacity-60' : 'bg-blue-600 ml-2'  }`}
           disabled={text.trim().length === 0}
+          onPress={() => router.push('/(tabs)/tradesperson/work-details/PrePayment')}
+          
         >
-          <Text className="text-white font-medium">Continue</Text>
+          <Text className="text-white font-medium ">Continue</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>

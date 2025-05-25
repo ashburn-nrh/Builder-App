@@ -42,7 +42,7 @@ const Qualified = () => {
       />
 
       {/* Submit Button */}
-      <TouchableOpacity className="bg-[#A4C8FF] py-3 px-6 rounded-md self-start" onPress={()=> router.push('/(tabs)/tradesperson/work-details/ProfileSetup')}>
+      <TouchableOpacity className="bg-blue-400 py-3 px-6 rounded-md self-start" onPress={()=> router.push('/(tabs)/tradesperson/work-details/ProfileSetup')}>
         <Text className="text-white font-medium text-base">Submit</Text>
       </TouchableOpacity>
     </View>
