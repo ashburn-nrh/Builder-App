@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 import { Info, X } from 'lucide-react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import AppHeader from '@/components/AppHeader';
+import { router } from 'expo-router';
 
 const ProfileIntroScreen = () => {
   const [text, setText] = useState('');
 
   return (
-    <ScrollView className="flex-1 bg-[#F4FBF3] px-6 pt-10">
+    <SafeAreaView className="flex-1 bg-white">
+        <AppHeader onBackPress={() => router.push('/(tabs)/tradesperson/work-details/HowItWorks')} />
+    <ScrollView className="flex-1 bg-primary px-6 pt-5">
       {/* Header */}
       <View className="flex-row justify-between items-start mb-4">
         <Text className="text-2xl font-bold text-black">Profile Setup</Text>
-        <TouchableOpacity className="flex-row items-center space-x-1">
-          <Text className="underline text-sm text-black">Cancel</Text>
-          <X size={16} color="black" />
-        </TouchableOpacity>
       </View>
 
       {/* Step progress */}
@@ -70,6 +71,7 @@ const ProfileIntroScreen = () => {
         </TouchableOpacity>
       </View>
     </ScrollView>
+    </SafeAreaView>
   );
 };
 
