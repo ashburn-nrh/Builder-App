@@ -28,8 +28,7 @@ const WorkDetails = () => {
       return;
     }
       router.push({
-    pathname: '/(tabs)/tradesperson/work-details/WorkDetailsStep1',
-    params: { skills: JSON.stringify(selected) },
+    pathname: '/(tabs)/tradesperson/work-details/TravelDistance',
   });
 };
 

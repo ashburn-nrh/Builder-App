@@ -21,10 +21,10 @@ const StrongestSkill = () => {
   }, [skills]);
 
   const handleContinue = () => {
-    if (!selectedSkill) return;
+    //if (!selectedSkill) return;
     // Save the strongest skill or move to the next screen
-    console.log('Selected strongest skill:', selectedSkill);
-    router.push('/(tabs)/tradesperson/work-details/ReviewIDCardScreen'); // Adjust accordingly
+    //console.log('Selected strongest skill:', selectedSkill);
+    router.push('/(tabs)/tradesperson/work-details/Qualified'); // Adjust accordingly
   };
 
   return (
@@ -70,7 +70,7 @@ const StrongestSkill = () => {
       </ScrollView>
 
       <TouchableOpacity
-        disabled={!selectedSkill}
+        //disabled={!selectedSkill}
         onPress={handleContinue}
         className={`py-3 rounded-lg ${
           selectedSkill ? 'bg-blue-700' : 'bg-blue-200'
