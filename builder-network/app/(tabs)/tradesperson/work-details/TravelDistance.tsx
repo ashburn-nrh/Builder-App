@@ -25,7 +25,7 @@ const TravelDistance = () => {
   const googleMapsUrl = `https://www.google.com/maps/@12.9716,77.5946,12z`;
   const handleContinue = () => {
     router.push({
-  pathname: '/(tabs)/tradesperson/work-details/WorkDetailsStep1',
+  pathname: '/(tabs)/tradesperson/work-details/IDCheckScreen',
   // params: { skills }, // just pass the same param if needed
 });
     // TODO: Pass required params if needed

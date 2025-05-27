@@ -28,7 +28,7 @@ const WorkDetails = () => {
       return;
     }
       router.push({
-    pathname: '/(tabs)/tradesperson/work-details/TravelDistance',
+    pathname: '/(tabs)/tradesperson/work-details/WorkDetailsStep1',
   });
 };
 

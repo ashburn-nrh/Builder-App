@@ -51,7 +51,7 @@ const WorkDetailsStep2 = () => {
 
       {/* Navigation buttons */}
       <View className="flex-row justify-center">
-        <TouchableOpacity className="bg-blue-500 w-full py-3 rounded-md" onPress={() => router.push('/(tabs)/tradesperson/work-details/IDCheckScreen')}>
+        <TouchableOpacity className="bg-blue-500 w-full py-3 rounded-md" onPress={() => router.push('/(tabs)/tradesperson/work-details/TravelDistance')}>
           <Text className="text-sm text-white text-center font-semibold">Continue</Text>
         </TouchableOpacity>
       </View>

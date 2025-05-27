@@ -50,6 +50,7 @@ export default function TabLayout() {
       <Tabs.Screen name="client/post-job/[category]/client-details" options={{ href: null }} />
       <Tabs.Screen name="tradesperson/work-details/WorkDetails" options={{ href: null }} />
       <Tabs.Screen name='tradesperson/work-details/WorkDetailsStep1' options={{ href: null }} />
+            <Tabs.Screen name='tradesperson/work-details/WorkDetailsStep2' options={{ href: null }} />
       <Tabs.Screen name='tradesperson/work-details/TravelDistance' options={{ href: null }} />
       <Tabs.Screen name='tradesperson/work-details/ReviewIDCardScreen' options={{ href: null }} />
       <Tabs.Screen name='tradesperson/work-details/SelectIDScreen' options={{ href: null }} />
@@ -62,7 +63,8 @@ export default function TabLayout() {
       <Tabs.Screen name='tradesperson/work-details/profileIntro' options={{ href: null }} />
       <Tabs.Screen name='client/my-job/EditJob' options={{ href: null }} />
       <Tabs.Screen name='client/post-job/getResponses' options={{ href: null }} />
-      <Tabs.Screen name='client/post-job/client-dashboard' options={{ href: null }} />
+      <Tabs.Screen name='client/post-job/[category]/client-dashboard' options={{ href: null }} />
+
 
       
     </Tabs>

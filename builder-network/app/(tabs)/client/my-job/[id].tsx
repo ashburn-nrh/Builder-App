@@ -47,7 +47,7 @@ export default function JobDetail() {
   }
 
   return (
-    <SafeAreaView className="flex-1 bg-gradient-to-b from-primary to-white">
+    <SafeAreaView className="flex-1 bg-gradient-to-b bg-primary">
       <View className="flex-1 bg-primary p-6">
         {/* Back Button */}
         <TouchableOpacity onPress={() => router.push('/client/my-job')} className="mb-4 flex-row items-center">

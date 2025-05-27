@@ -18,7 +18,7 @@ const WorkDetailsStep1 = () => {
 
   return (
     <SafeAreaView className="flex-1 bg-white">
-      <AppHeader onBackPress={() => router.push('/(tabs)/tradesperson/work-details/TravelDistance')} />
+      <AppHeader onBackPress={() => router.push('/(tabs)/tradesperson/work-details/WorkDetails')} />
 
       <ScrollView className="flex-1 bg-primary px-6 pt-5">
         {/* Header */}
