@@ -1,18 +1,17 @@
+import React, { useState } from 'react';
 import {
   View,
   Text,
   FlatList,
   TouchableOpacity,
   SafeAreaView,
+  Alert,
 } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 
-
-// Updated dummy data with rating and location
 const dummyTradespersons = [
   { id: '1', name: 'Alice Builder', rating: 4.5, location: 'New York' },
   { id: '2', name: 'Bob Construct', rating: 4.0, location: 'Los Angeles' },
@@ -22,12 +21,16 @@ const dummyTradespersons = [
 export default function InviteScreen() {
   const { category } = useLocalSearchParams<{ category: string }>();
   const router = useRouter();
+
+  // ✅ Track invited IDs
+  const [invitedIds, setInvitedIds] = useState<string[]>([]);
+
   const iconButtons = [
     {
       name: 'send-outline',
       type: 'Ionicons',
       label: 'Send invites',
-      route: ``,
+      route: '',
     },
     {
       name: 'message1',
@@ -43,9 +46,13 @@ export default function InviteScreen() {
     },
   ];
 
-  const handleInvite = (name: string) => {
-    alert(`Invite sent to ${name}`);
-    router.push('/'); // or navigate elsewhere
+  const handleInvite = (id: string, name: string) => {
+    if (invitedIds.includes(id)) {
+      Alert.alert('Already Invited', `${name} has already been invited.`);
+      return;
+    }
+    setInvitedIds((prev) => [...prev, id]);
+    Alert.alert('Invite Sent', `You invited ${name}`);
   };
 
   const renderIcon = (icon: typeof iconButtons[0]) => {
@@ -53,8 +60,8 @@ export default function InviteScreen() {
 
     return (
       <TouchableOpacity
-        key={icon.route}
-        onPress={() => router.push({ pathname: icon.route })}
+        key={icon.label}
+        onPress={() => icon.route && router.push(icon.route)}
         className="items-center"
       >
         <IconComponent name={icon.name as any} size={24} color="black" />
@@ -69,13 +76,29 @@ export default function InviteScreen() {
     const stars = [];
 
     for (let i = 0; i < fullStars; i++) {
-      stars.push(<FontAwesome key={`full-${i}`} name="star" size={16} color="#fbbf24" />);
+      stars.push(
+        <FontAwesome key={`full-${i}`} name="star" size={16} color="#fbbf24" />
+      );
     }
     if (halfStar) {
-      stars.push(<FontAwesome key="half" name="star-half-full" size={16} color="#fbbf24" />);
+      stars.push(
+        <FontAwesome
+          key="half"
+          name="star-half-full"
+          size={16}
+          color="#fbbf24"
+        />
+      );
     }
     while (stars.length < 5) {
-      stars.push(<FontAwesome key={`empty-${stars.length}`} name="star-o" size={16} color="#fbbf24" />);
+      stars.push(
+        <FontAwesome
+          key={`empty-${stars.length}`}
+          name="star-o"
+          size={16}
+          color="#fbbf24"
+        />
+      );
     }
 
     return <View className="flex-row space-x-1">{stars}</View>;
@@ -86,7 +109,7 @@ export default function InviteScreen() {
       {/* Header */}
       <View className="flex-row px-6 py-4 bg-white border-b border-gray-200 items-center">
         <TouchableOpacity
-          onPress={() => router.push('/(tabs)/post-job')}
+          onPress={() => router.back()}
           className="mr-4"
         >
           <Ionicons name="arrow-back" size={24} color="black" />
@@ -112,30 +135,42 @@ export default function InviteScreen() {
         <FlatList
           data={dummyTradespersons}
           keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <View className="bg-white p-4 rounded-xl mb-3">
-              <Text className="text-gray-800 text-lg font-semibold mb-1">
-                {item.name}
-              </Text>
-
-              {/* Location */}
-              <Text className="text-gray-500 text-sm mb-1">📍 {item.location}</Text>
-
-              {/* Rating */}
-              <View className="mb-2">{renderStars(item.rating)}</View>
-
-              {/* Invite Button */}
-              <View className=" justify-center">
+          renderItem={({ item }) => {
+            const invited = invitedIds.includes(item.id);
+            return (
+              <View className="bg-white p-4 rounded-xl mb-3">
+                <Text className="text-gray-800 text-lg font-semibold mb-1">
+                  {item.name}
+                </Text>
+                <Text className="text-gray-500 text-sm mb-1">
+                  📍 {item.location}
+                </Text>
+                <View className="mb-2">{renderStars(item.rating)}</View>
                 <TouchableOpacity
-                  onPress={() => handleInvite(item.name)}
-                  className="bg-blue-500 px-4 py-3 rounded-lg"
+                  onPress={() => handleInvite(item.id, item.name)}
+                  disabled={invited}
+                  className={`px-4 py-3 rounded-lg ${
+                    invited ? 'bg-gray-400' : 'bg-blue-500'
+                  }`}
                 >
-                  <Text className="text-white font-medium text-center">Send Invite</Text>
+                  <Text className="text-white font-medium text-center">
+                    {invited ? 'Invited' : 'Send Invite'}
+                  </Text>
                 </TouchableOpacity>
               </View>
-            </View>
-          )}
+            );
+          }}
         />
+
+        {/* Back to Home Button */}
+        <TouchableOpacity
+          onPress={() => router.push('/')}
+          className="bg-black py-4 rounded-xl mt-4"
+        >
+          <Text className="text-white text-center font-bold text-lg">
+            Back to Home
+          </Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );

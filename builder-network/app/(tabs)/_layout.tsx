@@ -61,6 +61,8 @@ export default function TabLayout() {
       <Tabs.Screen name='tradesperson/work-details/PrePayment' options={{ href: null }} />
       <Tabs.Screen name='tradesperson/work-details/profileIntro' options={{ href: null }} />
       <Tabs.Screen name='client/my-job/EditJob' options={{ href: null }} />
+      <Tabs.Screen name='client/post-job/getResponses' options={{ href: null }} />
+      <Tabs.Screen name='client/post-job/client-dashboard' options={{ href: null }} />
 
       
     </Tabs>

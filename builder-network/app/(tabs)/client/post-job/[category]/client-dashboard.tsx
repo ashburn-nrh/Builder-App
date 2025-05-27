@@ -13,7 +13,7 @@ export default function ClientDashboard() {
       {/* Header */}
       <View className="flex-row items-center justify-between py-4">
         <Text className="text-2xl font-bold text-gray-900">Welcome back!</Text>
-        <TouchableOpacity onPress={() => router.push('/')}>
+        <TouchableOpacity onPress={() => router.push('/(tabs)/client/my-job')}>
           <Ionicons name="home-outline" size={24} color="black" />
         </TouchableOpacity>
       </View>
