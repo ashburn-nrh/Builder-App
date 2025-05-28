@@ -4,6 +4,11 @@ import ProfileAvatar from '@/components/ProfileAvatar';
 import SettingsRow from '@/components/SettingsRow';
 import { router } from 'expo-router';
 
+
+import { useAppStore } from '@/store/useAppStore';
+import ClientNav from '@/components/ClientNav';
+import TradespersonNav from '@/components/TradespersonNav';
+
 const Section = ({ title, items }: { title: string; items: { iconName: string; label: string; onPress: () => void }[] }) => (
   <>
     <Text className="text-xl font-semibold text-gray-800 mt-10 mb-4">{title}</Text>
@@ -14,6 +19,8 @@ const Section = ({ title, items }: { title: string; items: { iconName: string; l
 );
 
 const Index = () => {
+
+    const { userType, clientJobPosted } = useAppStore();
   const [showLogoutModal, setShowLogoutModal] = useState(false);
 
   const handleLogout = () => {
@@ -102,6 +109,8 @@ const Index = () => {
     </View>
   </View>
 </Modal>
+                {userType === 'client' && clientJobPosted && <ClientNav />}
+      {userType === 'tradesperson' && <TradespersonNav />}
 
     </SafeAreaView>
   );

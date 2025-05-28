@@ -20,8 +20,14 @@ export default function TradespersonNav() {
         <Text className="text-xs text-black">Leads</Text>
       </TouchableOpacity>
 
+      {/* Contact */}
+       <TouchableOpacity onPress={() => router.push('/tradesperson/leads/ActivityScreen')} className="items-center">
+        <Ionicons name="newspaper-outline" size={24} color="black" />
+        <Text className="text-xs text-black">Leads</Text>
+      </TouchableOpacity>
+
       {/* Profile */}
-      <TouchableOpacity onPress={() => router.push('/tradesperson/leads/ActivityScreen')} className="items-center">
+      <TouchableOpacity onPress={() => router.push('/tradesperson/profile')} className="items-center">
         <Ionicons name="person-outline" size={24} color="black" />
         <Text className="text-xs text-black">Profile</Text>
       </TouchableOpacity>

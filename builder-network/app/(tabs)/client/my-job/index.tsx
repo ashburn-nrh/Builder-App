@@ -3,6 +3,10 @@ import { View, Text, FlatList, TouchableOpacity, SafeAreaView } from 'react-nati
 import React from 'react';
 import { useRouter } from 'expo-router';
 
+import { useAppStore } from '@/store/useAppStore';
+import ClientNav from '@/components/ClientNav';
+import TradespersonNav from '@/components/TradespersonNav';
+
 const dummyJobs = [
   {
     id: '1',
@@ -35,6 +39,8 @@ const dummyJobs = [
 ];
 
 export default function MyJobScreen() {
+
+  const { userType, clientJobPosted } = useAppStore();
   const router = useRouter();
 
   return (
@@ -73,6 +79,9 @@ export default function MyJobScreen() {
           )}
         />
       </View>
+
+                      {userType === 'client' && clientJobPosted && <ClientNav />}
+            
     </SafeAreaView>
   );
 }

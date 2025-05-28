@@ -7,14 +7,14 @@ export default function ClientNav() {
     <View className="flex-row justify-around bg-white py-4 border-t border-gray-200">
       {/* Home */}
       <TouchableOpacity onPress={() => router.push('/client/post-job')} className="items-center">
-        <Ionicons name="home-outline" size={24} color="black" />
-        <Text className="text-xs text-black">Home</Text>
+        <Ionicons name="add-circle-outline" size={24} color="black" />
+        <Text className="text-xs text-black">Post Job</Text>
       </TouchableOpacity>
 
       {/* Leads */}
       <TouchableOpacity onPress={() => router.push('/(tabs)/client/my-job')} className="items-center">
-        <Ionicons name="briefcase-outline" size={24} color="black" />
-        <Text className="text-xs text-black">Leads</Text>
+        <Ionicons name="newspaper-outline" size={24} color="black" />
+        <Text className="text-xs text-black">My jobs</Text>
       </TouchableOpacity>
 
       {/* Profile */}

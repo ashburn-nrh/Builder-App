@@ -1,0 +1,98 @@
+import React from 'react';
+import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { Feather, Entypo } from '@expo/vector-icons';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
+
+import { useAppStore } from '@/store/useAppStore';
+import ClientNav from '@/components/ClientNav';
+import TradespersonNav from '@/components/TradespersonNav';
+import { navigate } from 'expo-router/build/global-state/routing';
+import { router } from 'expo-router';
+
+const Index = () => {
+
+      const { userType, clientJobPosted } = useAppStore();
+  return (
+    <SafeAreaView className="flex-1 bg-white">
+      <ScrollView contentContainerStyle={{ paddingBottom: 20 }} className="px-4 bg-primary">
+        {/* Profile Section */}
+        <View className="items-start mt-4 mb-4">
+          <View className="flex-row items-center gap-3 mb-1">
+            <View className="w-10 h-10 bg-gray-300 rounded-full justify-center items-center">
+              <Feather name="user" size={20} color="#000" />
+            </View>
+            <View>
+              <Text className="font-semibold text-base">Ash</Text>
+              <Text className="text-gray-600 text-sm">Bangalore</Text>
+            </View>
+          </View>
+          <TouchableOpacity>
+            <Text className="text-blue-600 text-sm">View profile</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Complete Registration */}
+        {/* <View className="mb-4">
+          <Text className="text-xs text-gray-700">🧩 Complete registration</Text>
+          <Text className="text-xs text-gray-600">1 step left</Text>
+        </View> */}
+
+        {/* Menu List */}
+        <View className="mb-2">
+          <TouchableOpacity className="bg-blue-600 px-4 py-2 rounded-md mb-2">
+            <Text className="text-white font-medium">Company description</Text>
+          </TouchableOpacity>
+
+          {['Reviews', 'Portfolio', 'Ask a tradesperson'].map((item) => (
+            <TouchableOpacity key={item} className="py-2">
+              <Text className="text-gray-800">{item}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+
+        {/* Sections */}
+        {[
+          {
+            title: 'Account',
+            items: ['Contact details', 'Manage account', 'Saved leads'],
+          },
+          {
+            title: 'Job settings',
+            items: ['Work area', 'Services', 'My message templates', 'Notifications'],
+          },
+          {
+            title: 'Payments',
+            items: ['Balance', 'Payments'],
+          },
+          {
+            title: 'Support',
+            items: ['Support center'],
+          },
+          {
+            title: 'Discover',
+            items: ['Trade Perks'],
+          },
+        ].map((section) => (
+          <View key={section.title} className="border-t border-gray-300 mt-4 pt-4">
+            <Text className="text-xs text-gray-500 uppercase mb-2">{section.title}</Text>
+            {section.items.map((item) => (
+              <TouchableOpacity key={item} className="py-2">
+                <Text className="text-gray-800">{item}</Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+        ))}
+
+        {/* Logout */}
+        <TouchableOpacity className="flex-row items-center gap-2 mt-6" onPress={()=> router.replace('/(tabs)')}>
+          <Text className="text-red-600 font-medium">Log out</Text>
+        </TouchableOpacity>
+      </ScrollView>
+                      {userType === 'client' && clientJobPosted && <ClientNav />}
+            {userType === 'tradesperson' && <TradespersonNav />}
+    </SafeAreaView>
+  );
+};
+
+export default Index;
