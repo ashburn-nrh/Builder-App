@@ -4,6 +4,11 @@ import { Link } from 'expo-router'
 import { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
+
+import { useAppStore } from '@/store/useAppStore';
+import ClientNav from '@/components/ClientNav';
+import TradespersonNav from '@/components/TradespersonNav';
+
 const leads = [
   {
     id: '1',
@@ -71,11 +76,16 @@ const leads = [
 ]
 
 export default function HomeScreen() {
+
+  const { userType, clientJobPosted } = useAppStore();
+
   const [search, setSearch] = useState('')
 
   return (
-    <SafeAreaView className="flex-1 bg-primary">
+    <SafeAreaView className="flex-1 bg-white">
+      <View className='flex-1'>
     <ScrollView className="flex-1 bg-primary px-4 pt-6">
+      
       {/* Header */}
       <Text className="text-2xl font-bold text-black mb-4">New leads</Text>
 
@@ -129,7 +139,14 @@ export default function HomeScreen() {
           </View>
         </View>
       ))}
+
+
+
+
     </ScrollView>
+                {userType === 'client' && clientJobPosted && <ClientNav />}
+      {userType === 'tradesperson' && <TradespersonNav />}
+    </View>
     </SafeAreaView>
   )
 }

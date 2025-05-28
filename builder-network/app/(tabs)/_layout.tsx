@@ -1,72 +1,80 @@
-import { Tabs } from 'expo-router';
-import { Ionicons } from '@expo/vector-icons';
+// 
 
-export default function TabLayout() {
-  return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: 'blue',
-        headerShown: false,
-      }}
-    >
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Post Job',
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="hammer" color={color} size={size} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="client/my-job/index"
-        options={{
-          title: 'My Job',
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="clipboard" color={color} size={size} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="client/profile/index"
-        options={{
-          title: 'Profile',
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="person" color={color} size={size} />
-          ),
-        }}
-      />
+// import { Tabs } from 'expo-router';
+// import { useAppStore } from '@/store/useAppStore';
+// import { Ionicons, FontAwesome } from '@expo/vector-icons';
+// import { Flag } from 'lucide-react-native';
 
-      {/* 👇 This hides non-tab files from showing in the tab bar */}
-      <Tabs.Screen name="client/post-job/[category]" options={{ href: null }} />
-      <Tabs.Screen name="client/post-job/[category]/invite" options={{ href: null }} />
-      <Tabs.Screen name="login" options={{href:null}}/>
-      <Tabs.Screen name="tradesperson/sign-up" options={{href:null}}/>
-      <Tabs.Screen name="client/post-job/index" options={{href:null}}/>
+// export default function TabsLayout() {
+//   const userType = useAppStore((state) => state.userType);
 
-      <Tabs.Screen name="client/my-job/CloseJob" options={{ href: null }} />
-      <Tabs.Screen name="client/profile/contact/index" options={{ href: null }} />
-      <Tabs.Screen name="client/post-job/[category]/work-area" options={{ href: null }} />
-      <Tabs.Screen name="client/post-job/[category]/client-details" options={{ href: null }} />
-      <Tabs.Screen name="tradesperson/work-details/WorkDetails" options={{ href: null }} />
-      <Tabs.Screen name='tradesperson/work-details/WorkDetailsStep1' options={{ href: null }} />
-            <Tabs.Screen name='tradesperson/work-details/WorkDetailsStep2' options={{ href: null }} />
-      <Tabs.Screen name='tradesperson/work-details/TravelDistance' options={{ href: null }} />
-      <Tabs.Screen name='tradesperson/work-details/ReviewIDCardScreen' options={{ href: null }} />
-      <Tabs.Screen name='tradesperson/work-details/SelectIDScreen' options={{ href: null }} />
-      <Tabs.Screen name='tradesperson/work-details/IDCheckScreen' options={{ href: null }} />
-      <Tabs.Screen name='tradesperson/work-details/VerifySkillsScreen' options={{ href: null }} />
-      <Tabs.Screen name='tradesperson/work-details/StrongestSkill' options={{ href: null }} />
-      <Tabs.Screen name='tradesperson/work-details/Qualified' options={{ href: null }} />
-      <Tabs.Screen name='tradesperson/work-details/PaymentMethod' options={{ href: null }} />
-      <Tabs.Screen name='tradesperson/work-details/PrePayment' options={{ href: null }} />
-      <Tabs.Screen name='tradesperson/work-details/profileIntro' options={{ href: null }} />
-      <Tabs.Screen name='client/my-job/EditJob' options={{ href: null }} />
-      <Tabs.Screen name='client/post-job/getResponses' options={{ href: null }} />
-      <Tabs.Screen name='client/post-job/[category]/client-dashboard' options={{ href: null }} />
+//   return (
+//     <Tabs screenOptions={{ headerShown: false }}>
+//       {/* Common tabs */}
+//       <Tabs.Screen
+//         name="home"
+//         options={{
+//           tabBarLabel: 'Home',
+//           tabBarIcon: ({ color, size }) => (
+//             <Ionicons name="home-outline" size={size} color={color} />
+//           ),
+//         }}
+//       />
+
+//       {userType === 'client' && (
+//         <>
+//           <Tabs.Screen
+//             name="client/post-job"
+//             options={{
+//               tabBarLabel: 'Post Job',
+//               tabBarIcon: ({ color, size }) => (
+//                 <Ionicons name="briefcase-outline" size={size} color={color} />
+//               ),
+//             }}
+//           />
+//           <Tabs.Screen
+//             name="client/my-job"
+//             options={{
+//               tabBarLabel: 'My Jobs',
+//               tabBarIcon: ({ color, size }) => (
+//                 <FontAwesome name="tasks" size={size} color={color} />
+//               ),
+//             }}
+//           />
+//         </>
+//       )}
+
+//       {userType === 'tradesperson' && (
+//         <>
+//           <Tabs.Screen
+//             name="tradesperson/leads/Contact"
+//             options={{
+//               tabBarLabel: 'Job Feed',
+//               tabBarIcon: ({ color, size }) => (
+//                 <Ionicons name="list" size={size} color={color} />
+//               ),
+//             }}
+//           />
+//           <Tabs.Screen
+//             name="tradesperson/leads/Newleads"
+//             options={{
+//               tabBarLabel: 'Profile',
+//               tabBarIcon: ({ color, size }) => (
+//                 <Ionicons name="person-circle-outline" size={size} color={color} />
+//               ),
+//             }}
+//           />
+//         </>
+//       )}
+//     </Tabs>
+//   );
+// }
 
 
-      
-    </Tabs>
-  );
+
+
+import { Stack } from 'expo-router';
+
+export default function RootLayout() {
+  return <Stack screenOptions={{ headerShown: false }} />;
 }

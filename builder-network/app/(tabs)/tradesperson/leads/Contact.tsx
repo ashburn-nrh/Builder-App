@@ -7,13 +7,20 @@ import {
   SafeAreaView,
 } from 'react-native';
 
+import { useAppStore } from '@/store/useAppStore';
+import ClientNav from '@/components/ClientNav';
+import TradespersonNav from '@/components/TradespersonNav';
+
 export default function ContactsScreen() {
+
+  const { userType, clientJobPosted } = useAppStore();
+
   const [tab, setTab] = useState<'messages' | 'archive'>('messages');
 
   return (
-    <SafeAreaView className="flex-1 bg-primary p-6">
+    <SafeAreaView className="flex-1 bg-white p-6">
       {/* Title */}
-      <View className="flex-1 px-6 ">
+      <View className="flex-1 px-6 bg-primary ">
         {/* <TouchableOpacity onPress={() => console.log('Back pressed')}>
           <Text className="text-blue-600 text-lg">← Back</Text>
         </TouchableOpacity> */}
@@ -74,7 +81,10 @@ export default function ContactsScreen() {
           <Text className="text-gray-500">No archived contacts.</Text>
         </View>
       )}
+
       </View>
+                            {userType === 'client' && clientJobPosted && <ClientNav />}
+            {userType === 'tradesperson' && <TradespersonNav />}
     </SafeAreaView>
   );
 }

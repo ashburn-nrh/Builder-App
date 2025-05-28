@@ -12,9 +12,16 @@ import { Link } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import LightLogo from '@/components/LightLogo';
 
+import { useAppStore } from '@/store/useAppStore';
+import ClientNav from '@/components/ClientNav';
+import TradespersonNav from '@/components/TradespersonNav';
+
 const screenWidth = Dimensions.get('window').width;
 
 export default function HomeScreen() {
+
+  const { userType, clientJobPosted } = useAppStore();
+
   const [open, setOpen] = useState(false);
   const colorScheme = useColorScheme(); // Detect system theme
   const isDarkMode = colorScheme === 'dark';
@@ -108,6 +115,8 @@ export default function HomeScreen() {
             <Text className="text-white text-3xl font-bold">2,509,604</Text>
             <Text className="text-gray-400 text-sm">reviews</Text>
           </View>
+                {userType === 'client' && clientJobPosted && <ClientNav />}
+                {userType === 'tradesperson' && <TradespersonNav />}
         </View>
       </SafeAreaView>
     </>

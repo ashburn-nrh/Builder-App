@@ -4,10 +4,15 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { useAppStore } from '@/store/useAppStore';
+import ClientNav from '@/components/ClientNav';
+import TradespersonNav from '@/components/TradespersonNav';
+
 const ActivityScreen = () => {
+
+  const { userType, clientJobPosted } = useAppStore();
   return (
     <SafeAreaView className="flex-1 bg-white">
-        <AppHeader onBackPress={() => router.push('/(tabs)/tradesperson/leads/Newleads')} />
     <View className="flex-1 pt-5 bg-primary px-6">
       <Text className="text-2xl font-bold self-start mb-8">Activity</Text>
 
@@ -28,11 +33,13 @@ const ActivityScreen = () => {
           Once you express interest, get shortlisted or{'\n'}hired, you’ll see leads here.
         </Text>
 
-        <TouchableOpacity className="bg-blue-600 px-6 py-3 rounded-md">
+        <TouchableOpacity className="bg-blue-600 px-6 py-3 rounded-md" onPress={()=> router.push('/(tabs)/tradesperson/leads/Newleads')}>
           <Text className="text-white font-semibold">Browse leads</Text>
         </TouchableOpacity>
       </View>
     </View>
+                          {userType === 'client' && clientJobPosted && <ClientNav />}
+                {userType === 'tradesperson' && <TradespersonNav />}
     </SafeAreaView>
   );
 };

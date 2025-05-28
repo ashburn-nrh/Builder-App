@@ -11,6 +11,7 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { useAppStore } from '@/store/useAppStore';
 
 const dummyTradespersons = [
   { id: '1', name: 'Alice Builder', rating: 4.5, location: 'New York' },
@@ -19,6 +20,9 @@ const dummyTradespersons = [
 ];
 
 export default function InviteScreen() {
+    const setClientJobPosted = useAppStore((state) => state.setClientJobPosted);
+
+    
   const { category } = useLocalSearchParams<{ category: string }>();
   const router = useRouter();
 
@@ -104,6 +108,12 @@ export default function InviteScreen() {
     return <View className="flex-row space-x-1">{stars}</View>;
   };
 
+
+    const submitJob = () => {
+    setClientJobPosted(true);
+    router.push('/client/post-job');
+  };
+
   return (
     <SafeAreaView className="flex-1 bg-primary">
       {/* Header */}
@@ -164,7 +174,7 @@ export default function InviteScreen() {
 
         {/* Back to Home Button */}
         <TouchableOpacity
-          onPress={() => router.push('/')}
+          onPress={submitJob}
           className="bg-black py-4 rounded-xl mt-4"
         >
           <Text className="text-white text-center font-bold text-lg">

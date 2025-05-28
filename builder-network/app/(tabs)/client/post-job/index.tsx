@@ -5,11 +5,19 @@ import { useRouter } from 'expo-router';
 import AppHeader from '@/components/AppHeader';
 
 
+import { useAppStore } from '@/store/useAppStore';
+import ClientNav from '@/components/ClientNav';
+import TradespersonNav from '@/components/TradespersonNav';
+
+
 // ✅ Correct import – adjust if using default export
 import { jobCategories } from '@/constants/JobCategory'; 
 
 
 export default function PostJobScreen() {
+
+  const { userType, clientJobPosted } = useAppStore();
+
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState<string | null>(null);
   const router = useRouter();
@@ -66,7 +74,10 @@ export default function PostJobScreen() {
           >
             <Text className="text-white text-base font-medium text-center">Next</Text>
           </TouchableOpacity>
+          {userType === 'client' && clientJobPosted && <ClientNav />}
+          {userType === 'tradesperson' && <TradespersonNav />}
         </View>
+
       )}
     </SafeAreaView>
   );
