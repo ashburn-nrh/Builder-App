@@ -8,6 +8,7 @@ import { router } from 'expo-router';
 import { useAppStore } from '@/store/useAppStore';
 import ClientNav from '@/components/ClientNav';
 import TradespersonNav from '@/components/TradespersonNav';
+import { Router } from 'lucide-react-native';
 
 const Section = ({ title, items }: { title: string; items: { iconName: string; label: string; onPress: () => void }[] }) => (
   <>
@@ -25,6 +26,7 @@ const Index = () => {
 
   const handleLogout = () => {
     setShowLogoutModal(false);
+    router.push('/(tabs)')
     // TODO: Add actual logout logic
   };
 

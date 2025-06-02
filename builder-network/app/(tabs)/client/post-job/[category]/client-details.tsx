@@ -26,7 +26,7 @@ export default function ClientDetails() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-[#f9fff3]">
+    <SafeAreaView className="flex-1 bg-primary">
       <AppHeader onBackPress={() => router.back()} />
 
       <View className="p-6">

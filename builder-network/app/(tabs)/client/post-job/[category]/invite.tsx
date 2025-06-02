@@ -12,6 +12,7 @@ import { Ionicons } from '@expo/vector-icons';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { useAppStore } from '@/store/useAppStore';
+import AppHeader from '@/components/AppHeader';
 
 const dummyTradespersons = [
   { id: '1', name: 'Alice Builder', rating: 4.5, location: 'New York' },
@@ -117,17 +118,7 @@ export default function InviteScreen() {
   return (
     <SafeAreaView className="flex-1 bg-primary">
       {/* Header */}
-      <View className="flex-row px-6 py-4 bg-white border-b border-gray-200 items-center">
-        <TouchableOpacity
-          onPress={() => router.back()}
-          className="mr-4"
-        >
-          <Ionicons name="arrow-back" size={24} color="black" />
-        </TouchableOpacity>
-        <Text className="text-blue-500 text-xl font-extrabold">
-          <Text className="text-blue-500 text-2xl">B</Text>UILDER NETWORK
-        </Text>
-      </View>
+      <AppHeader onBackPress={() => router.replace('/(tabs)/client/post-job/[category]/client-details')} />
 
       {/* Content */}
       <View className="flex-1 p-4">

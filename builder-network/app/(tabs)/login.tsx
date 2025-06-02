@@ -45,11 +45,6 @@ export default function LoginScreen() {
       <AppHeader onBackPress={() => router.push('/(tabs)')} />
 
       <View className="px-6 pt-4">
-        <View className="flex-row justify-between items-center mb-8">
-          <TouchableOpacity className="border border-gray-300 px-3 py-1 rounded-lg">
-            <Text className="text-black">Menu ☰</Text>
-          </TouchableOpacity>
-        </View>
 
         {/* Login Title */}
         <Text className="text-3xl font-bold text-black mb-2">
