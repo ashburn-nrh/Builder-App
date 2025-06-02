@@ -69,8 +69,8 @@ export default function JobDetails() {
   }
 
   return (
-    <SafeAreaView className="flex-1 bg-primary">
-      <View className="flex-1 bg-white">
+    <SafeAreaView className="flex-1 bg-primary ">
+      <View className="flex-1 bg-white ">
         {/* Header */}
         <AppHeader onBackPress={() => router.push('/(tabs)/client/post-job')} />
 

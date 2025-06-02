@@ -29,7 +29,7 @@ export default function PostJobScreen() {
   }));
 
   return (
-    <SafeAreaView className="flex-1 bg-primary">
+    <SafeAreaView className="flex-1 bg-primary mb-2">
       {/* Header */}
       <AppHeader onBackPress={()=>router.push('/(tabs)')} />
 

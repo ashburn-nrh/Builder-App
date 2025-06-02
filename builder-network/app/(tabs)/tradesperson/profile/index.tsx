@@ -1,18 +1,16 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
-import { Feather, Entypo } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
-
+import { router } from 'expo-router';
 
 import { useAppStore } from '@/store/useAppStore';
 import ClientNav from '@/components/ClientNav';
 import TradespersonNav from '@/components/TradespersonNav';
-import { navigate } from 'expo-router/build/global-state/routing';
-import { router } from 'expo-router';
 
 const Index = () => {
+  const { userType, clientJobPosted } = useAppStore();
 
-      const { userType, clientJobPosted } = useAppStore();
   return (
     <SafeAreaView className="flex-1 bg-white">
       <ScrollView contentContainerStyle={{ paddingBottom: 20 }} className="px-4 bg-primary">
@@ -32,23 +30,24 @@ const Index = () => {
           </TouchableOpacity>
         </View>
 
-        {/* Complete Registration */}
-        {/* <View className="mb-4">
-          <Text className="text-xs text-gray-700">🧩 Complete registration</Text>
-          <Text className="text-xs text-gray-600">1 step left</Text>
-        </View> */}
-
         {/* Menu List */}
         <View className="mb-2">
           <TouchableOpacity className="bg-blue-600 px-4 py-2 rounded-md mb-2">
             <Text className="text-white font-medium">Company description</Text>
           </TouchableOpacity>
 
-          {['Reviews', 'Portfolio', 'Ask a tradesperson'].map((item) => (
-            <TouchableOpacity key={item} className="py-2">
-              <Text className="text-gray-800">{item}</Text>
-            </TouchableOpacity>
-          ))}
+          {/* Only Reviews has routing */}
+          <TouchableOpacity className="py-2" onPress={() => router.push('/(tabs)/tradesperson/profile/ReviewScreen')}>
+            <Text className="text-gray-800">Reviews</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity className="py-2">
+            <Text className="text-gray-800">Portfolio</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity className="py-2">
+            <Text className="text-gray-800">Ask a tradesperson</Text>
+          </TouchableOpacity>
         </View>
 
         {/* Sections */}
@@ -85,12 +84,14 @@ const Index = () => {
         ))}
 
         {/* Logout */}
-        <TouchableOpacity className="flex-row items-center gap-2 mt-6" onPress={()=> router.replace('/(tabs)')}>
+        <TouchableOpacity className="flex-row items-center gap-2 mt-6" onPress={() => router.replace('/(tabs)')}>
           <Text className="text-red-600 font-medium">Log out</Text>
         </TouchableOpacity>
       </ScrollView>
-                      {userType === 'client' && clientJobPosted && <ClientNav />}
-            {userType === 'tradesperson' && <TradespersonNav />}
+
+      {/* Bottom Navigation */}
+      {userType === 'client' && clientJobPosted && <ClientNav />}
+      {userType === 'tradesperson' && <TradespersonNav />}
     </SafeAreaView>
   );
 };
