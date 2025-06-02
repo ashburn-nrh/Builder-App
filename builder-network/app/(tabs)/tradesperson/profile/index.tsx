@@ -11,6 +11,24 @@ import TradespersonNav from '@/components/TradespersonNav';
 const Index = () => {
   const { userType, clientJobPosted } = useAppStore();
 
+  const sectionRoutes: Record<string, string> = {
+    'Contact details': '/tradesperson/profile/contact-details',
+    'Manage account': '/tradesperson/profile/manage-account',
+    'Saved leads': '/tradesperson/profile/saved-leads',
+
+    'Work area': '/tradesperson/profile/work-area',
+    'Services': '/tradesperson/profile/services',
+    'My message templates': '/tradesperson/profile/message-templates',
+    'Notifications': '/tradesperson/profile/notifications',
+
+    'Balance': '/(tabs)/tradesperson/profile/balance',
+    'Payments': '/tradesperson/profile/payments',
+
+    'Support center': '/tradesperson/profile/support-center',
+
+    'Trade Perks': '/tradesperson/profile/trade-perks',
+  };
+
   return (
     <SafeAreaView className="flex-1 bg-white">
       <ScrollView contentContainerStyle={{ paddingBottom: 20 }} className="px-4 bg-primary">
@@ -25,32 +43,34 @@ const Index = () => {
               <Text className="text-gray-600 text-sm">Bangalore</Text>
             </View>
           </View>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => router.push('/tradesperson/profile/view-profile')}>
             <Text className="text-blue-600 text-sm">View profile</Text>
           </TouchableOpacity>
         </View>
 
         {/* Menu List */}
         <View className="mb-2">
-          <TouchableOpacity className="bg-blue-600 px-4 py-2 rounded-md mb-2">
+          <TouchableOpacity
+            className="bg-blue-600 px-4 py-2 rounded-md mb-2"
+            onPress={() => router.push('/tradesperson/profile/company-description')}
+          >
             <Text className="text-white font-medium">Company description</Text>
           </TouchableOpacity>
 
-          {/* Only Reviews has routing */}
-          <TouchableOpacity className="py-2" onPress={() => router.push('/(tabs)/tradesperson/profile/ReviewScreen')}>
+          <TouchableOpacity className="py-2" onPress={() => router.push('/tradesperson/profile/ReviewScreen')}>
             <Text className="text-gray-800">Reviews</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity className="py-2">
+          <TouchableOpacity className="py-2" onPress={() => router.push('/tradesperson/profile/portfolio')}>
             <Text className="text-gray-800">Portfolio</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity className="py-2">
+          <TouchableOpacity className="py-2" onPress={() => router.push('/tradesperson/profile/ask-tradesperson')}>
             <Text className="text-gray-800">Ask a tradesperson</Text>
           </TouchableOpacity>
         </View>
 
-        {/* Sections */}
+        {/* Sections with Routing */}
         {[
           {
             title: 'Account',
@@ -76,7 +96,11 @@ const Index = () => {
           <View key={section.title} className="border-t border-gray-300 mt-4 pt-4">
             <Text className="text-xs text-gray-500 uppercase mb-2">{section.title}</Text>
             {section.items.map((item) => (
-              <TouchableOpacity key={item} className="py-2">
+              <TouchableOpacity
+                key={item}
+                className="py-2"
+                onPress={() => router.push(sectionRoutes[item] )}
+              >
                 <Text className="text-gray-800">{item}</Text>
               </TouchableOpacity>
             ))}
