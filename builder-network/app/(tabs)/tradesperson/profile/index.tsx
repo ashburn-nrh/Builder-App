@@ -21,7 +21,7 @@ const Index = () => {
     'My message templates': '/tradesperson/profile/message-templates',
     'Notifications': '/tradesperson/profile/notifications',
 
-    'Balance': '/(tabs)/tradesperson/profile/balance',
+    'Balance': '/(tabs)/tradesperson/profile/Balance',
     'Payments': '/tradesperson/profile/payments',
 
     'Support center': '/tradesperson/profile/support-center',

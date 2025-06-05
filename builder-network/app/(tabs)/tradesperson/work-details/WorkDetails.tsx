@@ -37,7 +37,7 @@ const WorkDetails = () => {
     // Navigate to main app
 
     const handleBack = () => {
-      router.push('/(tabs)/tradesperson/sign-up');
+      router.push('/(tabs)');
     };
 
   return (

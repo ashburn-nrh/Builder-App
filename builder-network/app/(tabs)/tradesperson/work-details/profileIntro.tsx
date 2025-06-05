@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, ScrollView } from 'react-native';
-import { Info, X } from 'lucide-react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AppHeader from '@/components/AppHeader';
 import { router } from 'expo-router';
@@ -32,7 +32,7 @@ const ProfileIntroScreen = () => {
       {/* Tip Box */}
       <View className="bg-blue-600 p-4 rounded-md mb-6">
         <View className="flex-row space-x-2 items-center mb-2">
-          <Info size={16} color="white" />
+          <Ionicons name='information-outline' size={16} color="white" />
           <Text className="text-white text-sm font-medium">
             A quality description can increase your chances of getting hired.
           </Text>

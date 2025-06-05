@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import { Info, X } from 'lucide-react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AppHeader from '@/components/AppHeader';
 import { router } from 'expo-router';
@@ -21,7 +21,7 @@ const HowItWorksScreen = () => {
         <View className="h-1 bg-blue-400 rounded-full w-[80%]" />
       </View>
       <TouchableOpacity className="flex-row items-center justify-end mb-6 space-x-1">
-        <Info size={12} color="black" />
+        <Ionicons name='information-outline' size={12} color="black" />
         <Text className="text-xs underline text-black">All steps</Text>
       </TouchableOpacity>
 
