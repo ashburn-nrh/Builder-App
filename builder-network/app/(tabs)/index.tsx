@@ -236,6 +236,136 @@ to you.</Text>
           <Image
           source={Screenshot}></Image>
         </View>
+        {/* Download App Section */}
+<View className="bg-[#001534] px-5 pt-8 pb-6">
+  <Text className="text-white text-2xl font-bold mb-3">Download our app</Text>
+  <Text className="text-white text-base leading-6 mb-4">
+    Posting and managing your jobs is even easier with the Builder Network app.
+    Add photos and information in an instant and keep things moving with notifications and chat,
+    allowing you to message tradespeople wherever you are. Once the job’s done,
+    leave a rating and review straight from your phone.
+  </Text>
+
+  {/* Download Buttons */}
+  <View className="flex-row space-x-4 mt-2 mb-4">
+    <TouchableOpacity className="bg-white rounded-md px-4 py-3">
+      <Image
+        source={require('@/assets/images/googleplay.png')}
+        className="w-32 h-10"
+        resizeMode="contain"
+      />
+    </TouchableOpacity>
+    <TouchableOpacity className="bg-white rounded-md px-4 py-3">
+      <Image
+        source={require('@/assets/images/app-store.png')}
+        className="w-32 h-10"
+        resizeMode="contain"
+      />
+    </TouchableOpacity>
+  </View>
+
+  <Text className="text-white mt-2">
+    Looking for our trades' person app? <Text className="underline">Find it here</Text>
+  </Text>
+</View>
+
+{/* Review Section */}
+<View className="bg-[#F1F8FF] p-6">
+  <View className="bg-[#007BFF] rounded-xl p-6">
+    <Text className="text-white text-xl font-bold mb-2">Millions of genuine reviews</Text>
+    <Text className="text-white text-base mb-4">
+      Reviews on The Builder Network are written by customers like you
+    </Text>
+    <TouchableOpacity className="bg-black px-6 py-3 rounded-lg self-start">
+      <Text className="text-white font-semibold">Post your job</Text>
+    </TouchableOpacity>
+  </View>
+</View>
+
+{/* Final CTA Section */}
+<View className="bg-[#0057D9] flex items-center justify-center p-6">
+  <Image
+    source={require('@/assets/images/homescreen3.png')} // Add your illustration asset
+    className=""
+    resizeMode="contain"
+  />
+  <TouchableOpacity className="bg-white rounded-full px-12 py-4 ">
+    <Text className="text-black font-semibold">Post your job now</Text>
+  </TouchableOpacity>
+</View>
+        {/* Footer Section */}
+<View className="bg-black px-6 py-10">
+  {/* First Links Column */}
+  <View className="flex flex-wrap flex-row justify-between">
+    <View className="space-y-3 mb-6 w-1/2">
+      {[
+        'Post a job',
+        'How it works',
+        'Find trades',
+        "Customer helpdesk",
+        "Ask a trades' person",
+        'Register as trades person',
+        'Quality requirements',
+        'Reviews policy',
+        'Tradespeople helpdesk',
+      ].map((text, index) => (
+        <Text key={index} className="text-white underline text-sm">
+          {text}
+        </Text>
+      ))}
+    </View>
+
+    {/* Second Links Column */}
+    <View className="space-y-3 mb-6 w-1/2">
+      {['About us', 'Press and media', 'Vacancies', 'Become a partner', 'Trades', 'Services', 'Cities', 'Pricing guides'].map((text, index) => (
+        <Text key={index} className="text-white underline text-sm">
+          {text}
+        </Text>
+      ))}
+    </View>
+  </View>
+
+  {/* Rating Dots & TrustPilot */}
+  <View className="flex-row justify-center space-x-4 mt-6">
+    {[1, 2, 3].map((_, i) => (
+      <View key={i} className="w-6 h-6 bg-[#f4fef4] rounded-full" />
+    ))}
+  </View>
+
+  <View className="mt-4 items-center">
+    <Image
+      source={require('@/assets/images/trustpilot.png')} // Replace with your Trustpilot asset
+      className="w-52 h-8"
+      resizeMode="contain"
+    />
+  </View>
+
+  {/* App Store Buttons */}
+  <View className="flex-row justify-center space-x-4 mt-6">
+    <Image
+      source={require('@/assets/images/app-store.png')}
+      className="w-36 h-12"
+      resizeMode="contain"
+    />
+    <Image
+      source={require('@/assets/images/googleplay.png')}
+      className="w-36 h-12"
+      resizeMode="contain"
+    />
+  </View>
+
+  {/* Footer Bottom */}
+  <View className="mt-6 space-y-3">
+    {['Privacy', 'Cookie policy', 'Cookie settings', 'Terms and conditions'].map((text, i) => (
+      <Text key={i} className="text-white underline text-sm text-center">
+        {text}
+      </Text>
+    ))}
+    <Text className="text-white text-xs text-center mt-4">© 2008–2025 The Builder Network Limited</Text>
+  </View>
+</View>
+
+        
 
       </ScrollView>
     </SafeAreaView>
