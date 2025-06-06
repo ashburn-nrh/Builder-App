@@ -43,7 +43,7 @@ const Index = () => {
               <Text className="text-gray-600 text-sm">Bangalore</Text>
             </View>
           </View>
-          <TouchableOpacity onPress={() => router.push('/tradesperson/profile/view-profile')}>
+          <TouchableOpacity onPress={() => router.push('/tradesperson/profile')}>
             <Text className="text-blue-600 text-sm">View profile</Text>
           </TouchableOpacity>
         </View>
@@ -61,7 +61,7 @@ const Index = () => {
             <Text className="text-gray-800">Reviews</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity className="py-2" onPress={() => router.push('/tradesperson/profile/portfolio')}>
+          <TouchableOpacity className="py-2" onPress={() => router.push('/tradesperson/profile/Portfolio')}>
             <Text className="text-gray-800">Portfolio</Text>
           </TouchableOpacity>
 

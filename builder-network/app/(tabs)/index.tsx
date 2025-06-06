@@ -365,6 +365,62 @@ to you.</Text>
   </View>
 </View>
 
+{/* Find tradespeople + Professions Section */}
+<View className="bg-blue-600 px-6 py-10 space-y-8">
+  {/* Cities */}
+  <View>
+    <Text className="text-white font-bold text-base mb-4">Find tradespeople in your area</Text>
+    <View className="flex-row flex-wrap justify-between">
+      {[
+        'London', 'Manchester', 'Glasgow', 'Bristol', 'Birmingham', 'Nottingham',
+        'Leeds', 'Liverpool', 'Sheffield', 'Edinburgh', 'Cardiff', 'Leicester',
+        'Stockport', 'Newcastle Upon Type', 'Milton Keynes', 'Northampton',
+        'Norwich', 'Derby', 'Reading', 'Coventry', 'Stoke On Trent', 'Cambridge',
+        'Southampton', 'More cities +',
+      ].map((city, i) => (
+        <Text key={i} className="text-white underline w-1/2 text-sm mb-2">
+          {city}
+        </Text>
+      ))}
+    </View>
+  </View>
+
+  {/* Professions */}
+  <View>
+    <Text className="text-white font-bold text-base mb-4">Our tradespeople's professions</Text>
+    <View className="flex-row flex-wrap justify-between">
+      {[
+        'Handymen', 'Painters and Decorators', 'Builders', 'Landscape Gardeners',
+        'Carpenters', 'Plasterers', 'Tilers', 'Flooring Fitters',
+        'Fencers', 'Bricklayers', 'Bathroom Fitters', 'Window Fitters',
+        'Kitchen Fitters', 'Fascias and Soffits Installers',
+        'Gas Engineers', 'Roofers', 'Fireplace Installers', 'More trades +',
+      ].map((trade, i) => (
+        <Text key={i} className="text-white underline w-1/2 text-sm mb-2">
+          {trade}
+        </Text>
+      ))}
+    </View>
+  </View>
+
+  {/* Instar Group Links */}
+  <View className="pt-6 border-t border-white/20">
+    <Text className="text-white font-semibold mb-2">Part of the Instar Group and Anti family</Text>
+    <View className="space-y-1">
+      <Text className="text-white text-xs">
+        USA: <Text className="underline">HomeAdvisor</Text> & <Text className="underline">Anti</Text> & <Text className="underline">Instar</Text>
+      </Text>
+      <Text className="text-white text-xs">Canada: <Text className="underline">Homes tars</Text></Text>
+      <Text className="text-white text-xs">The Netherlands: <Text className="underline">Workshop</Text></Text>
+      <Text className="text-white text-xs">France: <Text className="underline">Travail</Text></Text>
+      <Text className="text-white text-xs">Germany: <Text className="underline">Hammer</Text></Text>
+      <Text className="text-white text-xs">Austria: <Text className="underline">Hammer</Text></Text>
+      <Text className="text-white text-xs">Italy: <Text className="underline">Instar</Text></Text>
+    </View>
+  </View>
+</View>
+
+
         
 
       </ScrollView>

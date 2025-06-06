@@ -43,7 +43,7 @@ const Index = () => {
         <Section
           title="Account"
           items={[
-            { iconName: 'person-outline', label: 'Contact Information', onPress: () => router.push('/profile/contact') },
+            { iconName: 'person-outline', label: 'Contact Information', onPress: () => router.push('/(tabs)/client/profile/contact') },
             { iconName: 'person-circle-outline', label: 'Manage account', onPress: () => {} },
             { iconName: 'help-outline', label: 'My questions', onPress: () => {} },
           ]}

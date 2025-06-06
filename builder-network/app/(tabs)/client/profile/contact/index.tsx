@@ -9,7 +9,7 @@ const index = () => {
     <SafeAreaView className='flex-1 bg-primary'>
         <View className='flex-1 px-6 py-4'>
             <View className='flex-row items-start'>
-                <Ionicons name="arrow-back" size={24} color="black" onPress={() => {router.push('/(tabs)/profile')}} />
+                <Ionicons name="arrow-back" size={24} color="black" onPress={() => router.back()} />
             </View>
             <Text className='text-3xl font-bold text-gray-800 mb-8 mt-3 '>Contact Details</Text>
             <View className="p-4 rounded-lg border border-gray-400">
