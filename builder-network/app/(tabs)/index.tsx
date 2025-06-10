@@ -155,7 +155,7 @@ export default function HomeScreen() {
         {/* How It Works Section */}
 {/* Why The Builder Network Section */}
         <View className="mt-10  p-4 rounded-md">
-          <Text className="text-white text-xl font-semibold  mb-2">
+          <Text className="text-white text-xl font-semibold  mb-4">
             Why The Builder Network is the reliable way
           </Text>
           <Text className="text-white text-base mb-4">
@@ -165,19 +165,19 @@ export default function HomeScreen() {
           <View className=" w-24 h-24 rounded-full bg-gray-400 self-center mb-4"  />
           <View className="space-y-4">
             <View >
-              <Text className="font-bold text-base text-white">The tradespeople you require</Text>
-              <Text className="text-white text-base">
+              <Text className="font-bold text-base text-white mb-3">The tradespeople you require</Text>
+              <Text className="text-white text-base mb-3 ">
                 Post your job for free to access tradespeople with the skills you require and get responses from those who want to do it.
               </Text>
             </View>
             <View>
-              <Text className="font-bold text-base text-white">Genuine customer reviews</Text>
-              <Text className="text-white text-base">
+              <Text className="font-bold text-base text-white mb-2">Genuine customer reviews</Text>
+              <Text className="text-white text-base mb-3">
                 You can read real reviews from previous customers to make informed decisions.
               </Text>
             </View>
             <View>
-              <Text className="font-bold text-base text-white">You're in control</Text>
+              <Text className="font-bold text-base text-white mb-3">You're in control</Text>
               <Text className="text-white text-base">
                 Only the tradespeople you choose can contact you. View profiles and feedback to decide who to hire.
               </Text>
@@ -419,10 +419,6 @@ to you.</Text>
     </View>
   </View>
 </View>
-
-
-        
-
       </ScrollView>
     </SafeAreaView>
   </>

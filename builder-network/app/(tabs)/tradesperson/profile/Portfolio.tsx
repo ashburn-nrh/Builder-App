@@ -9,7 +9,7 @@ const PortfolioScreen = () => {
 
   return (
     <SafeAreaView className="flex-1 bg-white">
-    <View className="flex-1 bg-primary px-6 pt-5">
+    <View className="flex-1 bg-primary px-6 pt-5i">
       {/* Back button */}
       <TouchableOpacity onPress={() => router.back()} className="mb-4">
         <Ionicons name="chevron-back" size={24} color="black" />
