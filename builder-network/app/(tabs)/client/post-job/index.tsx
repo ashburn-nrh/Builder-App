@@ -74,7 +74,7 @@ export default function PostJobScreen() {
           >
             <Text className="text-white text-base font-medium text-center">Next</Text>
           </TouchableOpacity>
-                            {userType === 'client' && clientJobPosted && <ClientNav />}
+                            {userType === 'client' &&  <ClientNav />}
           {userType === 'tradesperson' && <TradespersonNav />}
         </View>)}
 
