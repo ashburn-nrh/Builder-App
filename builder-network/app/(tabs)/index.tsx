@@ -1,4 +1,5 @@
 import {
+  ImageBackground,
   View,
   Text,
   TouchableOpacity,
@@ -17,6 +18,8 @@ import LightLogo from '@/components/LightLogo';
 import { useAppStore } from '@/store/useAppStore';
 import ClientNav from '@/components/ClientNav';
 import TradespersonNav from '@/components/TradespersonNav';
+
+import background from '../../assets/images/Background.png';
 
 import  Girl  from '../../assets/images/Girl.png'
 import HeroImage from '../../assets/images/hero.png';
@@ -89,8 +92,15 @@ export default function HomeScreen() {
               <ScrollView
         contentContainerStyle={{ flexGrow: 1, paddingBottom: 10 }}
       >
+
+{/* background image */}
+        <ImageBackground
+      source={background}      
+      style={{ flex: 1 }}
+      className="pt-16"
+    >
         {/* Top Hero Section */}
-        <View className="flex-1 justify-center px-10 mt-10">
+        <View className="flex-1 items-center px-10 mt-20 mb-44">
           <Text className="text-white tracking-wider text-sm mb-3">
             THE RELIABLE WAY TO HIRE A
           </Text>
@@ -100,7 +110,7 @@ export default function HomeScreen() {
         </View>
 
         {/* CTA box */}
-        <View className="px-10 mt-4 ">
+        <View className="items-center px-10 mt-10 mb-24">
           <View className="bg-white px-4 py-3 rounded-2xl w-64">
             <Text className="text-gray-700 font-bold text-lg mb-1">What Is Your Job?</Text>
             <TouchableOpacity className="flex-row items-center justify-between">
@@ -109,13 +119,16 @@ export default function HomeScreen() {
             </TouchableOpacity>
           </View>
         </View>
+{/* 
         <Image
           source={HeroImage}
           style={{alignContent: 'center', width: '100%', height: 350, borderRadius: 20, marginBottom: 10, marginTop: 10}}
-        ></Image>
+        ></Image> */}
+
+
 
         {/* Footer Stats - STICK TO END OF HERO SECTION */}
-        <View className="bg-black py-10 px-6 flex-row flex-wrap justify-around mt-8">
+        <View className="bg-black py-10 px-6 flex-row flex-wrap justify-around mt-">
           <View className="items-center mb-6">
             <Text className="text-white text-3xl font-bold">232,870</Text>
             <Text className="text-gray-400 text-sm">tradespeople</Text>
@@ -129,10 +142,12 @@ export default function HomeScreen() {
             <Text className="text-gray-400 text-sm">reviews</Text>
           </View>
         </View>
+        </ImageBackground>
 
         {/* Remaining content appears below footer */}
-        <View className="flex-1 bg-primary p-5">
-        <Text className="text-center text-lg font-semibold mt-4">How to hire the right trades person</Text>
+        <View className="flex-1 bg-white p-5">
+        <Text className="text-center text-xl font-semibold mt-4">How to hire the right </Text>
+        <Text className='text-center text-xl font-semibold mt-2 text-blue-700'>tradesperson</Text>
 
         {[
           { step: 'STEP 1', text: 'Post Your Job For Free' },
@@ -146,7 +161,7 @@ export default function HomeScreen() {
           </View>
         ))}
 
-        <TouchableOpacity className="bg-blue-600 rounded-md mt-8 py-3 mx-8">
+        <TouchableOpacity className="bg-blue-600 rounded-full mt-8 py-3 mx-12">
           <Text className="text-center text-white font-semibold">SEE HOW IT WORKS</Text>
         </TouchableOpacity>
         </View>

@@ -23,3 +23,5 @@ export const Colors = {
     secondary: '#1e293b',          // example secondary for dark
   },
 };
+
+//#f2faeb
