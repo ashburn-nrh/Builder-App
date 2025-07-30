@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import React, { useState } from 'react';
 import { Link } from 'expo-router';
-import { Ionicons } from '@expo/vector-icons';
+import { Entypo, Feather, FontAwesome5, Ionicons, MaterialIcons } from '@expo/vector-icons';
 import LightLogo from '@/components/LightLogo';
 
 import { useAppStore } from '@/store/useAppStore';
@@ -169,42 +169,63 @@ export default function HomeScreen() {
 
         {/* How It Works Section */}
 {/* Why The Builder Network Section */}
-        <View className="mt-10  p-4 rounded-md">
-          <Text className="text-white text-xl font-semibold  mb-4">
-            Why The Builder Network is the reliable way
+    <ScrollView className="flex-1 bg-black px-5 pt-10">
+      <Text className="text-white text-2xl font-bold mb-2">Why The Builder Network is</Text>
+      <Text className="text-white text-2xl font-bold mb-4">the reliable way</Text>
+      <Text className="text-white text-base mb-6">
+        Hiring a tradesperson when you need one isn’t always easy. The Builder Network simplifies
+        the process, giving you confidence and control every step of the way.
+      </Text>
+
+      {/* Card: Find Skilled Tradespeople */}
+      <View className="bg-white rounded-2xl p-5 mb-4 flex-row items-start space-x-4">
+        <FontAwesome5 name="tools" size={28} color="#1D4ED8" />
+        <View className="flex-1">
+          <Text className="text-black font-bold text-lg mb-1">Find Skilled Tradespeople</Text>
+          <Text className="text-gray-600">
+            Post your job for free and connect with professionals who have the right skills for the
+            task. Only those interested will respond — you choose who to engage.
           </Text>
-          <Text className="text-white text-base mb-4">
-            Hiring a tradesperson when you need one isn’t always easy. The Builder Network lets you find tradespeople who
-            are right for the job.
-          </Text>
-          <View className=" w-24 h-24 rounded-full bg-gray-400 self-center mb-4"  />
-          <View className="space-y-4">
-            <View >
-              <Text className="font-bold text-base text-white mb-3">The tradespeople you require</Text>
-              <Text className="text-white text-base mb-3 ">
-                Post your job for free to access tradespeople with the skills you require and get responses from those who want to do it.
-              </Text>
-            </View>
-            <View>
-              <Text className="font-bold text-base text-white mb-2">Genuine customer reviews</Text>
-              <Text className="text-white text-base mb-3">
-                You can read real reviews from previous customers to make informed decisions.
-              </Text>
-            </View>
-            <View>
-              <Text className="font-bold text-base text-white mb-3">You're in control</Text>
-              <Text className="text-white text-base">
-                Only the tradespeople you choose can contact you. View profiles and feedback to decide who to hire.
-              </Text>
-            </View>
-          </View>
-          <Text className=' text-white text-center text-2xl mt-3'>
-            Ready to Hire a Tradesperson?
-          </Text>
-          <TouchableOpacity className="bg-black  mt-6 py-4 rounded-full ">
-            <Text className="text-center text-white font-bold ">POST YOUR JOB</Text>
-          </TouchableOpacity>
         </View>
+      </View>
+
+      {/* Card: Genuine Customer Reviews */}
+      <View className="bg-white rounded-2xl p-5 mb-4 flex-row items-start space-x-4">
+        <MaterialIcons name="verified-user" size={28} color="#1D4ED8" />
+        <View className="flex-1">
+          <Text className="text-black font-bold text-lg mb-1">Genuine Customer Reviews</Text>
+          <Text className="text-gray-600">
+            Read real reviews from previous customers to help you make informed hiring decisions
+            with confidence.
+          </Text>
+        </View>
+      </View>
+
+      {/* Card: Full Control at Every Step */}
+      <View className="bg-white rounded-2xl p-5 mb-4 flex-row items-start space-x-4">
+        <Entypo name="lock-open" size={28} color="#1D4ED8" />
+        <View className="flex-1">
+          <Text className="text-black font-bold text-lg mb-1">Full Control at Every Step</Text>
+          <Text className="text-gray-600">
+            Browse profiles, work history, and ratings before you chat. Only the tradespeople you
+            select can contact you.
+          </Text>
+        </View>
+      </View>
+
+      {/* Card: A Hassle-Free Experience */}
+      <View className="bg-white rounded-2xl p-5 mb-10 flex-row items-start space-x-4">
+        <Feather name="thumbs-up" size={28} color="#1D4ED8" />
+        <View className="flex-1">
+          <Text className="text-black font-bold text-lg mb-1">A Hassle-Free Experience</Text>
+          <Text className="text-gray-600">
+            No cold calls, no pressure. Just an easy-to-use platform that lets you manage the
+            process on your terms — from start to finish.
+          </Text>
+        </View>
+      </View>
+      </ScrollView>
+
 
         {/* Popular Trades */}
         <View className=" mt-10 mb-10">
