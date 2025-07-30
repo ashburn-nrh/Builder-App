@@ -8,7 +8,8 @@ import {
   StatusBar,
   useColorScheme,
   ScrollView,
-  Image
+  Image,
+  Button
 } from 'react-native';
 import React, { useState } from 'react';
 import { Link } from 'expo-router';
@@ -225,6 +226,19 @@ export default function HomeScreen() {
         </View>
       </View>
       </ScrollView>
+
+      <View className="flex-row bg-blue-600 px-5 py-8 items-center justify-between">
+        {/* Text on the left */}
+        <Text className="text-white text-xl font-bold">
+          Ready to hire{'\n'}a trades person
+        </Text>
+
+        {/* Button on the right */}
+        <TouchableOpacity className="bg-white rounded-full px-4 py-2 items-center justify-center">
+          <Text className="text-black text-base font-semibold">Post your job now</Text>
+        </TouchableOpacity>
+      </View>
+
 
 
         {/* Popular Trades */}
